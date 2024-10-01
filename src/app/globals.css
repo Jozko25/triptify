@@ -1,33 +1,166 @@
+/* Import Tailwind CSS Base, Components, and Utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+/* Custom Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes slideIn {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Custom Utility Classes */
+.animated-element {
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-out; /* Apply fade-in animation */
+}
+
+.slide-in {
+  animation: slideIn 2s ease-out; /* Apply slide-in animation */
+}
+
+/* Gradient Text Adjustment */
+.text-gradient-to-r {
+  line-height: 1.2; /* Adjust line-height for better appearance */
+}
+
+/* Header Overflow Fix */
+.header {
+  overflow: visible; /* Prevent clipping of child elements */
+}
+
+/* Tailwind Base Layer Customizations */
+@layer base {
+  .card {
+    @apply bg-zinc-200 backdrop-blur-lg border-none text-black shadow-base transition-shadow duration-300 ease-in-out;
+  }
+
+  .card:hover {
+    @apply shadow-hover; /* Increase shadow on hover */
+  }
+
+  .custom-phone-input > input {
+    background-color: #ebf4ff; /* Light blue background */
+    color: black; /* Black text color */
+    padding-left: 10px; /* Padding for better spacing */
+    border-radius: 0.5rem; /* Consistent border-radius */
+  }
+
+  .custom-phone-input > input::placeholder {
+    color: gray; /* Placeholder text color */
+    opacity: 1; /* Ensure placeholder visibility */
+  }
+}
+/* Add this CSS to your global stylesheet or a CSS module */
+
+/* Global styles or within a CSS module */
+.video-background {
+  position: fixed; /* Ensure it covers the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the entire area without distortion */
+  z-index: -1; /* Ensure it stays behind other content */
+}
+
+.video-blur {
+  filter: blur(8px); /* Apply blur effect */
+}
+
+/* Specific to mobile devices */
+@media (max-width: 768px) {
+  .video-background {
+    filter: blur(8px); /* Apply blur effect only on mobile */
+  }
+}
+
+
+
+
+/* Custom Color Variables */
+:root {
+  --background: 0 0% 100%; /* Light mode background */
+  --foreground: 222.2 84% 4.9%; /* Dark text */
+  --card: 0 0% 100%; /* Card background */
+  --card-foreground: 222.2 84% 4.9%; /* Card text */
+  --popover: 0 0% 100%; /* Popover background */
+  --popover-foreground: 222.2 84% 4.9%; /* Popover text */
+  --primary: 222.2 47.4% 11.2%; /* Primary color */
+  --primary-foreground: 210 40% 98%; /* Primary text */
+  --secondary: 210 40% 96.1%; /* Secondary color */
+  --secondary-foreground: 222.2 47.4% 11.2%; /* Secondary text */
+  --muted: 210 40% 96.1%; /* Muted color */
+  --muted-foreground: 215.4 16.3% 46.9%; /* Muted text */
+  --accent: 210 40% 96.1%; /* Accent color */
+  --accent-foreground: 222.2 47.4% 11.2%; /* Accent text */
+  --destructive: 0 84.2% 60.2%; /* Destructive color */
+  --destructive-foreground: 210 40% 98%; /* Destructive text */
+  --border: 214.3 31.8% 91.4%; /* Border color */
+  --input: 214.3 31.8% 91.4%; /* Input background */
+  --ring: 222.2 84% 4.9%; /* Ring color */
+  --radius: 0.5rem; /* Default border radius */
+  --chart-1: 12 76% 61%; /* Chart color 1 */
+  --chart-2: 173 58% 39%; /* Chart color 2 */
+  --chart-3: 197 37% 24%; /* Chart color 3 */
+  --chart-4: 43 74% 66%; /* Chart color 4 */
+  --chart-5: 27 87% 67%; /* Chart color 5 */
+}
+
+/* Dark Mode Variables */
+.dark {
+  --background: 222.2 84% 4.9%; /* Dark mode background */
+  --foreground: 210 40% 98%; /* Light text */
+  --card: 222.2 84% 4.9%; /* Dark card background */
+  --card-foreground: 210 40% 98%; /* Light card text */
+  --popover: 222.2 84% 4.9%; /* Dark popover background */
+  --popover-foreground: 210 40% 98%; /* Light popover text */
+  --primary: 210 40% 98%; /* Light primary color */
+  --primary-foreground: 222.2 47.4% 11.2%; /* Dark primary text */
+  --secondary: 217.2 32.6% 17.5%; /* Dark secondary color */
+  --secondary-foreground: 210 40% 98%; /* Light secondary text */
+  --muted: 217.2 32.6% 17.5%; /* Dark muted color */
+  --muted-foreground: 215 20.2% 65.1%; /* Muted text in dark mode */
+  --accent: 217.2 32.6% 17.5%; /* Dark accent color */
+  --accent-foreground: 210 40% 98%; /* Light accent text */
+  --destructive: 0 62.8% 30.6%; /* Dark destructive color */
+  --destructive-foreground: 210 40% 98%; /* Light destructive text */
+  --border: 217.2 32.6% 17.5%; /* Dark border color */
+  --input: 217.2 32.6% 17.5%; /* Dark input background */
+  --ring: 212.7 26.8% 83.9%; /* Light ring color */
+  --chart-1: 220 70% 50%; /* Dark chart color 1 */
+  --chart-2: 160 60% 45%; /* Dark chart color 2 */
+  --chart-3: 30 80% 55%; /* Dark chart color 3 */
+  --chart-4: 280 65% 60%; /* Dark chart color 4 */
+  --chart-5: 340 75% 55%; /* Dark chart color 5 */
+}
+
+/* Ensure Consistent Border Colors */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  /* Apply Background and Foreground Colors */
+  body {
+    @apply bg-background text-foreground;
   }
 }
