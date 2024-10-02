@@ -64,14 +64,10 @@ export default function Home() {
       name: "Support",
       link: "/support",
     },
-    {
-      name: "Dashboard",
-      link: "/dashboard",
-    },
   ];
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault(); 
 
     if (!checkRateLimit(emailSubmissions)) {
       toast({
@@ -267,7 +263,7 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.5 }}
           >
             {!isEmailSubmitted
-              ? "Leave us your email so we can contact you when it&apos;s ready"
+              ? "Leave us your email so we can contact you when its ready"
               : "Please provide your phone number to get instantly notified."}
           </motion.p>
 
