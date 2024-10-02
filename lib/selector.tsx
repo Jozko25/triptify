@@ -25,7 +25,7 @@ export default function CountrySelector({
   useEffect(() => {
     const mutableRef = ref as MutableRefObject<HTMLDivElement | null>;
 
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: any) => {
       if (
         mutableRef.current &&
         !mutableRef.current.contains(event.target) &&
