@@ -252,7 +252,8 @@ export default function Home() {
             transition={{ duration: 1 }}
           >
             <div className="mt-3">
-              <span className="text-gradient-to-r text-8xl text-orange-400">Triptify</span>
+            <span className="text-gradient-to-r text-8xl text-orange-400">Triptify</span>
+
             </div>
           </motion.h1>
 
@@ -263,9 +264,10 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.5 }}
           >
             {!isEmailSubmitted
-              ? "Leave us your email so we can contact you when its ready"
-              : "Please provide your phone number to get instantly notified."}
+            ? "Leave us your email so we can contact you when it's ready"
+            : "Please provide your phone number to get instantly notified."}
           </motion.p>
+
 
           <form onSubmit={handleEmailSubmit} className="flex flex-col items-center">
             {!isEmailSubmitted ? (
@@ -425,6 +427,10 @@ export default function Home() {
                 </CardContent>
               </Card>
             </motion.section>
+
+            <div className="flex justify-center mt-10 text-3xl hover:underline hover:text-orange-500">
+              <Link href="/support"><h1>I want to ask something</h1></Link>
+            </div>
             
             <div className="flex justify-center mt-10 text-9xl">
               <TbArrowZigZag className='text-9xl' />

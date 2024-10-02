@@ -69,7 +69,7 @@ export default function Support() {
             </Accordion> 
 
             <Accordion type="single" collapsible>
-              <AccordionItem value="item-1">
+              <AccordionItem value="item-2">
                 <AccordionTrigger>What can I do with your service?</AccordionTrigger>
                 <AccordionContent className="text-2xl">
                   You can find the best routes for your trips, discover interesting local spots, and get recommendations tailored to what you like.
@@ -78,7 +78,7 @@ export default function Support() {
             </Accordion>
 
             <Accordion type="single" collapsible>
-              <AccordionItem value="item-2">
+              <AccordionItem value="item-3">
                 <AccordionTrigger>How does the route planning work?</AccordionTrigger>
                 <AccordionContent className="text-2xl">
                   We help you find the quickest or most scenic routes by considering things like traffic and your preferences, so you can enjoy your journey.
@@ -87,7 +87,7 @@ export default function Support() {
             </Accordion>
 
             <Accordion type="single" collapsible>
-              <AccordionItem value="item-3">
+              <AccordionItem value="item-4">
                 <AccordionTrigger>Can I adjust the recommendations to fit my interests?</AccordionTrigger>
                 <AccordionContent className="text-2xl">
                   Absolutely! You can tell us what you’re interested in, like sightseeing or dining, and we’ll adjust the recommendations accordingly.
@@ -96,7 +96,7 @@ export default function Support() {
             </Accordion>
 
             <Accordion type="single" collapsible>
-              <AccordionItem value="item-4">
+              <AccordionItem value="item-5">
                 <AccordionTrigger>How do you find out about local attractions?</AccordionTrigger>
                 <AccordionContent className="text-2xl">
                   We gather information from local sources, reviews, and recommendations to show you the best places to visit and things to do.
@@ -105,7 +105,7 @@ export default function Support() {
             </Accordion>
 
             <Accordion type="single" collapsible>
-              <AccordionItem value="item-5">
+              <AccordionItem value="item-6">
                 <AccordionTrigger>Is this service useful for different types of trips?</AccordionTrigger>
                 <AccordionContent className="text-2xl">
                   Yes, whether you’re going on a road trip, exploring a city, or just walking around, our service is designed to help you get the most out of your journey.
@@ -114,7 +114,7 @@ export default function Support() {
             </Accordion>
 
             <Accordion type="single" collapsible>
-              <AccordionItem value="item-6">
+              <AccordionItem value="item-7">
                 <AccordionTrigger>Can I use this on my phone?</AccordionTrigger>
                 <AccordionContent className="text-2xl">
                   Definitely! You can use our service on both your computer and smartphone, so you can plan and explore wherever you are.
@@ -123,7 +123,7 @@ export default function Support() {
             </Accordion>
 
             <Accordion type="single" collapsible>
-              <AccordionItem value="item-7">
+              <AccordionItem value="item-8">
                 <AccordionTrigger>How up-to-date is the information?</AccordionTrigger>
                 <AccordionContent className="text-2xl">
                   We keep everything current by regularly updating our data, so you get the latest information about traffic, attractions, and more.
@@ -132,7 +132,7 @@ export default function Support() {
             </Accordion>
 
             <Accordion type="single" collapsible>
-              <AccordionItem value="item-8">
+              <AccordionItem value="item-9">
                 <AccordionTrigger>Can I use the service without an internet connection?</AccordionTrigger>
                 <AccordionContent className="text-2xl">
                   Yes, you can download important details and access them offline, so you don’t have to worry about losing connection.
@@ -141,7 +141,7 @@ export default function Support() {
             </Accordion>
 
             <Accordion type="single" collapsible>
-              <AccordionItem value="item-9">
+              <AccordionItem value="item-10">
                 <AccordionTrigger>How can I give feedback or report a problem?</AccordionTrigger>
                 <AccordionContent className="text-2xl">
                   You can easily send us your feedback or report any issues through our support page. We’re here to help!
@@ -150,7 +150,7 @@ export default function Support() {
             </Accordion>
 
             <Accordion type="single" collapsible>
-              <AccordionItem value="item-10">
+              <AccordionItem value="item-11">
                 <AccordionTrigger>What subscription plans do you offer?</AccordionTrigger>
                 <AccordionContent className="text-2xl">
                   We have a few different plans to choose from, depending on how many features you need. You can check out the options on our pricing page to find what works best for you.
@@ -160,6 +160,11 @@ export default function Support() {
           </motion.div>
         </main>
       </div>
+      <Link className='hover:text-orange-400 hover:underline' href="/">
+      <div className="mb-10">
+        <h1 className="text-center text-3xl">Go back</h1>
+      </div>
+      </Link>
     </ToastProvider>
   );
 }
