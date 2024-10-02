@@ -11,9 +11,9 @@ import {
 } from "@/components/ui/tooltip"; // Adjust the import path as needed
 
 const IconSelector = () => {
-  const [selectedIcon, setSelectedIcon] = useState(null);
+  const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
 
-  const handleIconClick = (icon) => {
+  const handleIconClick = (icon: string) => {
     setSelectedIcon(icon);
   };
 
@@ -30,7 +30,6 @@ const IconSelector = () => {
             >
               <FaCar size={40} color={selectedIcon === 'car' ? 'blue' : 'black'} />
             </TooltipTrigger>
-
           </Tooltip>
 
           <Tooltip>
@@ -42,7 +41,6 @@ const IconSelector = () => {
             >
               <FaPlane size={40} color={selectedIcon === 'plane' ? 'blue' : 'black'} />
             </TooltipTrigger>
-
           </Tooltip>
 
           <Tooltip>
@@ -54,7 +52,6 @@ const IconSelector = () => {
             >
               <FaTrain size={40} color={selectedIcon === 'train' ? 'blue' : 'black'} />
             </TooltipTrigger>
-
           </Tooltip>
         </div>
 
