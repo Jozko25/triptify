@@ -25,10 +25,10 @@ export default function CountrySelector({
   useEffect(() => {
     const mutableRef = ref as MutableRefObject<HTMLDivElement | null>;
 
-    const handleClickOutside = (event: any) => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         mutableRef.current &&
-        !mutableRef.current.contains(event.target) &&
+        !mutableRef.current.contains(event.target as Node) &&
         open
       ) {
         onToggle();
@@ -43,6 +43,11 @@ export default function CountrySelector({
   }, [ref]);
 
   const [query, setQuery] = useState("");
+  const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
+
+  const handleIconClick = (icon: string) => {
+    setSelectedIcon(icon);
+  };
 
   return (
     <div ref={ref}>
