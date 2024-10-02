@@ -213,7 +213,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
           >
-            And no, we won't spam you with useless emails. We only send emails you really need.
+            And no, we won&apos;t spam you with useless emails. We only send emails you really need.
           </motion.p>
           <div className="flex justify-center mt-6">
             <motion.button
@@ -267,7 +267,7 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.5 }}
           >
             {!isEmailSubmitted
-              ? "Leave us your email so we can contact you when it's ready"
+              ? "Leave us your email so we can contact you when it&apos;s ready"
               : "Please provide your phone number to get instantly notified."}
           </motion.p>
 
@@ -299,7 +299,7 @@ export default function Home() {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 1 }}
                 >
-                  Submit - it's free
+                  Submit - it&apos;s free
                 </motion.button>
                 <FaArrowsSplitUpAndLeft className='mt-10 text-9xl' />
               </>
@@ -325,7 +325,7 @@ export default function Home() {
                   Just one more thing.
                 </h2>
                 <p className="text-md text-black">
-                  Leave us your phone number if you're interested.
+                  Leave us your phone number if you&apos;re interested.
                 </p>
               </AlertDialogHeader>
               <form onSubmit={handlePhoneNumberSubmit} className="flex flex-col">
@@ -363,7 +363,7 @@ export default function Home() {
               <h2 className="text-4xl mb-7">About Triptify</h2>
               <p className="text-2xl max-w-2xl mx-auto">
                 Triptify is your intelligent companion for planning efficient and enjoyable routes. 
-                Whether you're commuting, road-tripping, or exploring a new city, we've got you covered.
+                Whether you&apos;re commuting, road-tripping, or exploring a new city, we&apos;ve got you covered.
               </p>
             </section>
             
@@ -396,7 +396,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-black text-xl">
-                    We don't need that here. We got Waze.
+                    We don&apos;t need that here. We got Waze.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -410,7 +410,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-black text-xl">
-                    Setup your itinerary so you know what's happening.
+                    Setup your itinerary so you know what&apos;s happening.
                   </CardDescription>
                 </CardContent>
               </Card>

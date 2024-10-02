@@ -88,7 +88,7 @@ export default function DocsPage() {
             <div className="pb-12 pt-8">
               <div className="prose max-w-none">
                 <p>
-                  This documentation site is built using Next.js and styled with Tailwind CSS. It's designed to be
+                  This documentation site is built using Next.js and styled with Tailwind CSS. Its designed to be
                   responsive, accessible, and easy to navigate.
                 </p>
                 <h2>Getting Started</h2>
@@ -103,8 +103,8 @@ export default function DocsPage() {
                 </p>
                 <h2>Need Help?</h2>
                 <p>
-                  If you need any assistance or have questions, please don't hesitate to reach out to our support team.
-                  We're here to help!
+                  If you need any assistance or have questions, please dont hesitate to reach out to our support team.
+                  Were here to help!
                 </p>
               </div>
             </div>

@@ -61,7 +61,7 @@ export default function Support() {
 
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
-                <AccordionTrigger className="text-orange-500">Couldn't find what you were looking for?</AccordionTrigger>
+                <AccordionTrigger className="text-orange-500">Couldn&apos;t find what you were looking for?</AccordionTrigger>
                 <AccordionContent className="text-2xl">
                   Contact us about anything you need here: <Link className="hover:text-orange-500 hover:underline" href="mailto:info@triptify.lol">info@triptify.lol</Link>
                 </AccordionContent>
