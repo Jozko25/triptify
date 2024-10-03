@@ -24,6 +24,12 @@
   }
 }
 
+/* Custom fadeInOut Animation for Light Dots */
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
 /* Custom Utility Classes */
 .animated-element {
   transition: all 0.3s ease; /* Smooth transition */
@@ -35,6 +41,13 @@
 
 .slide-in {
   animation: slideIn 2s ease-out; /* Apply slide-in animation */
+}
+
+/* Extend Tailwind to include fadeInOut animation */
+@layer utilities {
+  .animate-fade-in-out {
+    animation: fadeInOut 3s infinite; /* Use the custom animation */
+  }
 }
 
 /* Gradient Text Adjustment */
@@ -69,9 +82,8 @@
     opacity: 1; /* Ensure placeholder visibility */
   }
 }
-/* Add this CSS to your global stylesheet or a CSS module */
 
-/* Global styles or within a CSS module */
+/* Global styles for Video Background */
 .video-background {
   position: fixed; /* Ensure it covers the entire viewport */
   top: 0;
@@ -92,9 +104,6 @@
     filter: blur(8px); /* Apply blur effect only on mobile */
   }
 }
-
-
-
 
 /* Custom Color Variables */
 :root {
@@ -156,11 +165,11 @@
 /* Ensure Consistent Border Colors */
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border; /* Consistent border color */
   }
-  
+
   /* Apply Background and Foreground Colors */
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground; /* Background and text color */
   }
 }

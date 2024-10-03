@@ -27,6 +27,8 @@ import { FaArrowsSplitUpAndLeft } from "react-icons/fa6";
 import { TbArrowZigZag } from "react-icons/tb";
 import { FloatingNav } from '@/components/ui/floating-navbar';
 import MaxWidthWrapper from '@/components/ui/MaxWidthWrapper';
+import ArrowAnimation from '@/components/ui/arrowAnimation';
+
 
 const MAX_SUBMISSIONS = 4;
 const TIME_LIMIT = 4 * 60 * 1000; // 4 minutes in milliseconds
@@ -201,10 +203,10 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.5 }}
           >
             Thank you for registering. Please wait for further updates. 
-            If you have any questions, contact <Link href="/support" className='hover:text-orange-300 hover:underline'>support</Link>.
+            If you have any questions, contact <Link href="/support" className='hover:text-cyan-400 hover:underline'>support</Link>.
           </motion.p>
           <motion.p
-            className="text-xl bg-orange-500 rounded-xl p-4 text-white text-center"
+            className="text-xl bg-cyan-500 rounded-xl p-4 text-white text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
@@ -251,8 +253,9 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
+            <ArrowAnimation />
             <div className="mt-3">
-            <span className="text-gradient-to-r text-8xl text-orange-400">Triptify</span>
+            <span className="text-gradient-to-r text-9xl text-black">Triptify</span>
 
             </div>
           </motion.h1>
@@ -280,26 +283,26 @@ export default function Home() {
                 >
                   <div>
                     <Input
-                      className='bg-orange-400 text-black mb-2 mt-2 text-3xl rounded-xl'
+                      className='bg-zinc-200 text-black mb-2 mt-2 text-3xl rounded-xl'
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
                       placeholder=""
                     />
-                    <h1 className="text-center text-sm text-zinc-400">enter your email above</h1>
+                    <h1 className="text-center text-sm text-cyan-400">enter your email above</h1>
                   </div>
                 </motion.div>
                 <motion.button
                   type="submit"
-                  className="hover:scale-125 transition bg-orange-400 hover:bg-orange-700 text-white py-2 px-4 rounded-full text-2xl mt-12"
+                  className="hover:scale-125 transition bg-black hover:bg-cyan-500 text-white py-2 px-4 rounded-full text-2xl mt-12"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 1 }}
                 >
                   Submit - it&apos;s free
                 </motion.button>
-                <FaArrowsSplitUpAndLeft className='mt-10 text-9xl' />
+                <FaArrowsSplitUpAndLeft className='mt-10 text-9xl text-cyan-400' />
               </>
             ) : null}
           </form>
@@ -312,12 +315,12 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1.5 }}
             >
-              <p className="bg-orange-400 rounded-xl text-3xl mx-auto border shadow-2xl">Enter my phone number</p>
+              <p className="rounded-xl text-3xl mx-auto shadow-2xl">Enter my phone number</p>
             </motion.button>
           </div>
           
           <AlertDialog open={isDialogOpen} onOpenChange={(open) => setIsDialogOpen(open)}>
-            <AlertDialogContent className='bg-orange-400'>
+            <AlertDialogContent className='bg-zinc-300'>
               <AlertDialogHeader>
                 <h2 className="text-3xl text-black">
                   Just one more thing.
@@ -338,7 +341,7 @@ export default function Home() {
                 <AlertDialogFooter>
                   <AlertDialogCancel onClick={() => setIsDialogOpen(false)} className="hover:scale-125 transition hover:bg-zinc-400 text-black py-2 px-4 rounded-full">Cancel</AlertDialogCancel>
                   <AlertDialogAction type="submit"
-                    className="bg-white hover:scale-125 transition  hover:bg-green-700 text-black py-2 px-4 rounded-full"
+                    className="bg-white hover:scale-125 transition  hover:bg-cyan-400 text-black py-2 px-4 rounded-full"
                   >
                     Submit
                   </AlertDialogAction>
@@ -358,7 +361,7 @@ export default function Home() {
           <FloatingNav navItems={navItems} className="" />
           <main className="container mx-auto px-4 py-1">
             <section className="text-center mb-12">
-              <h2 className="text-4xl mb-7">About Triptify</h2>
+              <h2 className="text-4xl mb-7 text-black">About Triptify</h2>
               <p className="text-2xl max-w-2xl mx-auto">
                 Triptify is your intelligent companion for planning efficient and enjoyable routes. 
                 Whether you&apos;re commuting, road-tripping, or exploring a new city, we&apos;ve got you covered.
@@ -371,7 +374,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 2 }}
             >
-              <Card className="cursor-grab hover:scale-100 transition bg-orange-400 backdrop-blur-lg border-none text-black shadow-2xl">
+              <Card className="cursor-grab hover:scale-100 transition bg-white backdrop-blur-lg border-none text-black shadow-2xl hover:text-cyan-400">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <MapPin className="mr-2" />
@@ -385,7 +388,7 @@ export default function Home() {
                 </CardContent>
               </Card>
               
-              <Card className="cursor-grab hover:scale-100 transition bg-orange-400 backdrop-blur-lg border-none text-black shadow-2xl">
+              <Card className="cursor-grab hover:scale-100 transition bg-white backdrop-blur-lg border-none text-black shadow-2xl hover:text-cyan-400">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Navigation className="mr-2" />
@@ -399,7 +402,7 @@ export default function Home() {
                 </CardContent>
               </Card>
               
-              <Card className="cursor-grab hover:scale-100 transition  bg-orange-400 backdrop-blur-lg border-none text-black shadow-2xl">
+              <Card className="cursor-grab hover:scale-100 transition  bg-white backdrop-blur-lg border-none text-black shadow-2xl hover:text-cyan-400">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Clock className="mr-2" />
@@ -407,13 +410,13 @@ export default function Home() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-black text-xl">
+                  <CardDescription className="text-black text-xl ">
                     Setup your itinerary so you know what&apos;s happening.
                   </CardDescription>
                 </CardContent>
               </Card>
               
-              <Card className="cursor-grab hover:scale-100 transition bg-orange-400 backdrop-blur-lg border-none text-black shadow-2xl">
+              <Card className="cursor-grab hover:scale-100 transition bg-white backdrop-blur-lg border-none text-black shadow-2xl hover:text-cyan-400">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Zap className="mr-2" />
@@ -428,15 +431,15 @@ export default function Home() {
               </Card>
             </motion.section>
 
-            <div className="flex justify-center mt-10 text-3xl hover:underline hover:text-orange-500">
+            <div className="flex justify-center mt-10 text-3xl hover:underline hover:text-cyan-500">
               <Link href="/support"><h1>I want to ask something</h1></Link>
             </div>
             
             <div className="flex justify-center mt-10 text-9xl">
-              <TbArrowZigZag className='text-9xl' />
+              <TbArrowZigZag className='text-9xl hover:text-cyan-400 transition' />
             </div>
 
-            <Card className="bg-orange-400 backdrop-blur-lg border-none text-black text-center shadow-2xl">
+            <Card className="bg-white backdrop-blur-lg border-none text-black text-center shadow-2xl">
               <CardHeader>
                 <CardTitle className="flex items-center text-center justify-center">
                   <MapPin className="mr-2" />
