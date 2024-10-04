@@ -27,7 +27,7 @@ export default function Support() {
     <ToastProvider>
       <ToastViewport />
       <FloatingNav navItems={navItems} className="" />
-      <div className="min-h-screen bg-white text-black">
+      <div className="min-h-screen bg-white text-black bg-zinc-300">
         <header className="p-6 flex flex-col items-center"></header>
 
         <main className="container mx-auto px-4 py-12 text-center">
@@ -61,9 +61,9 @@ export default function Support() {
 
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
-                <AccordionTrigger className="text-cyan-500">Couldn&apos;t find what you were looking for?</AccordionTrigger>
+                <AccordionTrigger className="text-rose-400">Couldn&apos;t find what you were looking for?</AccordionTrigger>
                 <AccordionContent className="text-2xl">
-                  Contact us about anything you need here: <Link className="hover:text-cyan-500 hover:underline" href="mailto:info@triptify.lol">info@triptify.lol</Link>
+                  Contact us about anything you need here: <Link className="hover:text-rose-400 hover:underline" href="mailto:info@triptify.lol">info@triptify.lol</Link>
                 </AccordionContent>
               </AccordionItem>
             </Accordion> 
@@ -160,7 +160,7 @@ export default function Support() {
           </motion.div>
         </main>
       </div>
-      <Link className='hover:text-orange-400 hover:underline' href="/">
+      <Link className='hover:text-rose-400 hover:underline' href="/">
       <div className="mb-10">
         <h1 className="text-center text-3xl">Go back</h1>
       </div>

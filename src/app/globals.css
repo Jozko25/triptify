@@ -64,10 +64,16 @@
 @layer base {
   .card {
     @apply bg-zinc-200 backdrop-blur-lg border-none text-black shadow-base transition-shadow duration-300 ease-in-out;
+    /* Add floating effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for float effect */
+    position: relative; /* Ensure positioning context for transform */
+    z-index: 0; /* Set a lower z-index to allow overlapping elements */
   }
 
   .card:hover {
-    @apply shadow-hover; /* Increase shadow on hover */
+    @apply shadow-lg; /* Increase shadow on hover for floating effect */
+    transform: translateY(-5px); /* Slightly lift the card */
+    z-index: 10; /* Bring the hovered card to the front */
   }
 
   .custom-phone-input > input {
@@ -134,6 +140,7 @@
   --chart-5: 27 87% 67%; /* Chart color 5 */
 }
 
+
 /* Dark Mode Variables */
 .dark {
   --background: 222.2 84% 4.9%; /* Dark mode background */
@@ -170,6 +177,6 @@
 
   /* Apply Background and Foreground Colors */
   body {
-    @apply bg-background text-foreground; /* Background and text color */
+    @apply bg-zinc-300 text-foreground; /* Background and text color */
   }
 }
