@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
 
           <h2 className="text-2xl font-semibold mt-8">1. Introduction</h2>
           <p>
-            This Privacy Policy explains how Triptify ("we," "us," or "our") collects, uses, and shares your information when you use our route planning software ("the Service"). By using the Service, you consent to the data practices described in this policy.
+            This Privacy Policy explains how Triptify (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, and shares your information when you use our route planning software (&quot;the Service&quot;). By using the Service, you consent to the data practices described in this policy.
           </p>
 
           <h2 className="text-2xl font-semibold mt-8">2. Information We Collect</h2>
@@ -79,7 +79,7 @@ export default function PrivacyPolicy() {
             We take reasonable measures to protect your information from unauthorized access, use, or disclosure. However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee its absolute security.
           </p>
 
-          <h2 className="text-2xl font-semibold mt-8">7. Children's Privacy</h2>
+          <h2 className="text-2xl font-semibold mt-8">7. Children&apos;s Privacy</h2>
           <p>
             Our Service is not intended for use by children under the age of 13. We do not knowingly collect personal information from children. If we become aware that we have collected personal information from a child, we will take steps to delete such information.
           </p>
