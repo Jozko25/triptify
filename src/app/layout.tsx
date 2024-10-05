@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Triptify",
+  title: "Triptify - AI Route Planning",
   description: "Plan your trip like never b4.",
 };
 

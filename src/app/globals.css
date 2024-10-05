@@ -26,8 +26,12 @@
 
 /* Custom fadeInOut Animation for Light Dots */
 @keyframes fadeInOut {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* Custom Utility Classes */
@@ -47,6 +51,11 @@
 @layer utilities {
   .animate-fade-in-out {
     animation: fadeInOut 3s infinite; /* Use the custom animation */
+  }
+
+  /* Define the custom shadow class */
+  .shadow-base {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Define your custom shadow here */
   }
 }
 
@@ -139,7 +148,6 @@
   --chart-4: 43 74% 66%; /* Chart color 4 */
   --chart-5: 27 87% 67%; /* Chart color 5 */
 }
-
 
 /* Dark Mode Variables */
 .dark {

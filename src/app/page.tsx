@@ -1,12 +1,10 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import supabase from '@/utils/supabaseClient';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
-import { RiNumber1, RiNumber2, RiNumber3 } from "react-icons/ri";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -23,13 +21,13 @@ import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardDescription, CardTitle } from '@/components/ui/card';
-import { MapPin, Navigation, Clock, Zap } from 'lucide-react'; // Import icons
-import { FaArrowsSplitUpAndLeft } from "react-icons/fa6";
+import { MapPin} from 'lucide-react'; // Import icons
 import { TbArrowZigZag } from "react-icons/tb";
 import { FloatingNav } from '@/components/ui/floating-navbar';
 import MaxWidthWrapper from '@/components/ui/MaxWidthWrapper';
-import { SparklesCore } from '@/components/ui/sparkles';
-import Loading from '@/components/ui/loader';
+import AboutCard from './components/functionality/AboutCard';
+import Footer from './components/functionality/Footer';
+import StepCard from './components/functionality/StepCard';
 
 const MAX_SUBMISSIONS = 4;
 const TIME_LIMIT = 4 * 60 * 1000; // 4 minutes in milliseconds
@@ -42,16 +40,13 @@ export default function Home() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const { toast } = useToast();
-
   const [emailSubmissions, setEmailSubmissions] = useState<number[]>([]);
   const [phoneSubmissions, setPhoneSubmissions] = useState<number[]>([]);
-
   const checkRateLimit = (submissions: number[]) => {
     const now = Date.now();
     const recentSubmissions = submissions.filter(time => now - time < TIME_LIMIT);
     return recentSubmissions.length < MAX_SUBMISSIONS;
   };
-
   const addSubmission = (submissions: number[]) => {
     const now = Date.now();
     const updatedSubmissions = [...submissions.filter(time => now - time < TIME_LIMIT), now];
@@ -102,6 +97,7 @@ export default function Home() {
       setEmailSubmissions(addSubmission(emailSubmissions));
     }
   };
+
 
   const handlePhoneNumberSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -183,7 +179,7 @@ export default function Home() {
       setPhoneSubmissions(addSubmission(phoneSubmissions));
     }
   };
-
+  
   if (isSuccess) {
     return (
       <MaxWidthWrapper>
@@ -207,7 +203,7 @@ export default function Home() {
               If you have any questions, contact <Link href="/support" className='hover:text-cyan-400 hover:underline'>support</Link>.
             </motion.p>
             <motion.p
-              className="text-sm sm:text-xl bg-cyan-500 rounded-xl p-4 text-white text-center"
+              className="text-sm sm:text-xl bg-rose-400 rounded-xl p-4 text-white text-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
@@ -217,7 +213,7 @@ export default function Home() {
             <div className="flex justify-center mt-6">
               <motion.button
                 onClick={() => setIsSuccess(false)}
-                className="bg-white text-black py-2 px-4 rounded-full text-lg sm:text-xl"
+                className="bg-white text-black py-2 px-4 rounded-full text-lg sm:text-xl hover:bg-rose-400 hover:scale-120 transition"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 1.5 }}
@@ -248,14 +244,16 @@ export default function Home() {
           </header>
           
           <main className="mx-auto px-4 py-8 sm:py-12 text-center w-full">
-            <motion.h1
-              className="text-3xl sm:text-5xl md:text-7xl mb-6 text-transparent bg-clip-text bg-gradient-to-r from-black via-zinc-600 to-zinc-800"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-            >
-              Plan your routes the easiest way in seconds
-            </motion.h1>
+          <motion.h1
+  className="text-3xl sm:text-5xl md:text-7xl mb-6 text-transparent bg-clip-text bg-gradient-to-r from-black via-zinc-600 to-zinc-800"
+  style={{ lineHeight: '1.2', padding: '0.25rem 0' }} // Adjust line height and add padding
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1 }}
+>
+  Plan your routes the easiest way in seconds
+</motion.h1>
+
 
             <motion.p
               className="text-center text-black text-lg sm:text-xl mb-3 mt-6 px-2 sm:px-4"
@@ -297,8 +295,10 @@ export default function Home() {
                     transition={{ duration: 1, delay: 1 }}
                   >
                     Join the waitlist
+
+
                   </motion.button>
-                  <FaArrowsSplitUpAndLeft className='mt-6 sm:mt-10 text-6xl sm:text-9xl text-rose-400' />
+
                 </>
               ) : null}
             </form>
@@ -337,7 +337,7 @@ export default function Home() {
                   <AlertDialogFooter>
                     <AlertDialogCancel onClick={() => setIsDialogOpen(false)} className="hover:scale-105 transition hover:bg-zinc-400 text-black py-2 px-4 rounded-full text-sm sm:text-base">Cancel</AlertDialogCancel>
                     <AlertDialogAction type="submit"
-                      className="bg-white hover:scale-105 transition hover:bg-cyan-400 text-black py-2 px-4 rounded-full text-sm sm:text-base"
+                      className="bg-white hover:scale-105 transition hover:bg-rose-400 text-black py-2 px-4 rounded-full text-sm sm:text-base"
                     >
                       Submit
                     </AlertDialogAction>
@@ -363,143 +363,12 @@ export default function Home() {
                 </p>
               </section>
               
-              <motion.section
-                className="mb-8 sm:mb-12 flex justify-center"
-              >
-                <div className="relative z-10 p-4 sm:p-6 bg-zinc-300 rounded-lg shadow-lg transform transition-all hover:shadow-2xl hover:-translate-y-2 w-full max-w-6xl">
-                  <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 2 }}
-                  >
-                    <Card className="cursor-grab hover:scale-105 transition bg-white backdrop-blur-lg border-none text-black shadow-2xl hover:text-rose-400">
-                      <CardHeader>
-                        <CardTitle className="flex items-center text-lg sm:text-xl">
-                          <MapPin className="mr-2" />
-                          Real-time route update
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription className="text-black text-base sm:text-xl">
-                          Utilize advanced algorithms to be updated about your route ASAP.
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                    
-                    <Card className="cursor-grab hover:scale-105 transition bg-white backdrop-blur-lg border-none text-black shadow-2xl hover:text-rose-400">
-                      <CardHeader>
-                        <CardTitle className="flex items-center text-lg sm:text-xl">
-                          <Navigation className="mr-2" />
-                          Navigation
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription className="text-black text-base sm:text-xl">
-                          We don&apos;t need that here. We got Waze.
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                    
-                    <Card className="cursor-grab hover:scale-105 transition bg-white backdrop-blur-lg border-none text-black shadow-2xl hover:text-rose-400">
-                      <CardHeader>
-                        <CardTitle className="flex items-center text-lg sm:text-xl">
-                          <Clock className="mr-2" />
-                          Itinerary
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription className="text-black text-base sm:text-xl">
-                          Setup your itinerary so you know what&apos;s happening.
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                    
-                    <Card className="cursor-grab hover:scale-105 transition bg-white backdrop-blur-lg border-none text-black shadow-2xl hover:text-rose-400">
-                      <CardHeader>
-                        <CardTitle className="flex items-center text-lg sm:text-xl">
-                          <Zap className="mr-2" />
-                          Checklist
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription className="text-black text-base sm:text-xl">
-                          Make a checklist to never forget anything.
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                </div>
-              </motion.section>
+               <AboutCard/>
               
-              <h1 className="text-center text-4xl mb-4">Know everything you need in three steps</h1>
-              <p className="text-center text-xl">Never know the hassle of planning a trip all night again.</p>
+              <h1 className="text-center text-4xl mb-3">Know everything you need in three steps</h1>
+              <p className="text-center text-xl mb-3">Never know the hassle of planning a trip all night again.</p>
               
-              <motion.section className="mb-8 sm:mb-12 flex justify-center">
-                <div className="relative z-10 p-4 sm:p-6 bg-zinc-300 rounded-lg shadow-lg transform transition-all hover:shadow-2xl hover:-translate-y-2 w-full max-w-6xl">
-                  <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-6"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 2 }}
-                  > 
-                    <Card className="cursor-grab hover:scale-105 transition bg-zinc-800 backdrop-blur-lg border-none text-black shadow-2xl hover:text-rose-400 max-w-full h-[calc(100vw/3*1.05)]">
-                      <CardHeader>
-                        <CardTitle className="flex items-center text-lg sm:text-xl text-white">
-                          <RiNumber1 className="mr-2 text-white text-6xl" />
-                          Your details.
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription className="text-white text-base sm:text-xl">
-                          Provide the information to triptify, click submit.
-                          <img
-                            src="/1.png"
-                            className="mt-3 rounded-2xl w-[100%] flex-1"
-                          />
-                          <img
-                            src="/2.png"
-                            className="mt-3 rounded-2xl w-[100%] flex-1"
-                          />
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-
-                    <Card className="cursor-grab hover:scale-105 transition bg-zinc-800 backdrop-blur-lg border-none text-black shadow-2xl hover:text-rose-400 max-w-full h-[calc(100vw/3*1.05)]">
-                      <CardHeader>
-                          <CardTitle className="flex items-center text-lg sm:text-xl text-white">
-                            <RiNumber2 className="mr-2 text-6xl" />
-                            Let us process.
-                          </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        {/* Restructured to avoid div inside p */}
-                        <CardDescription className="text-white text-base sm:text-xl">
-                          Let triptify utilize the best performing algorithms to find the best results for you.
-                        </CardDescription>
-                        <div className="mt-2"> {/* You can adjust this margin if needed */}
-                          <Loading />
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    <Card className="cursor-grab hover:scale-105 transition bg-zinc-800 backdrop-blur-lg border-none text-black shadow-2xl hover:text-rose-400 max-w-full h-[calc(100vw/3*1.05)]">
-                      <CardHeader>
-                        <CardTitle className="flex items-center text-lg sm:text-xl text-white">
-                          <RiNumber3 className="mr-2 text-6xl" />
-                          Get the output.
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription className="text-white text-base sm:text-xl">
-                          Receive information you need, editable, in real-time updates.
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-
-                  </motion.div>
-                </div>
-              </motion.section>
+              <StepCard/>
               
               <div className="flex justify-center mt-6 sm:mt-10 text-8xl sm:text-9xl">
                 <TbArrowZigZag className='text-8xl sm:text-9xl hover:text-rose-400 transition' />
@@ -526,7 +395,7 @@ export default function Home() {
           </motion.div>
           
           <footer className="mb-5 text-black flex text-center py-4 mt-2 px-2 sm:px-4">
-            <p className="text-base sm:text-xl mx-auto">&copy; 2024 Triptify Inc. All rights reserved.</p>
+            <Footer/>
           </footer>
         </motion.div>
       </ToastProvider>
