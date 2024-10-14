@@ -93,7 +93,7 @@ export default function Support() {
                 <AccordionItem value="item-4">
                   <AccordionTrigger>Can I adjust the recommendations to fit my interests?</AccordionTrigger>
                   <AccordionContent className="text-2xl">
-                    Absolutely! You can tell us what you’re interested in, like sightseeing or dining, and we’ll adjust the recommendations accordingly.
+                    Absolutely! You can tell us what youre interested in, like sightseeing or dining, and well adjust the recommendations accordingly.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -111,7 +111,7 @@ export default function Support() {
                 <AccordionItem value="item-6">
                   <AccordionTrigger>Is this service useful for different types of trips?</AccordionTrigger>
                   <AccordionContent className="text-2xl">
-                    Yes, whether you’re going on a road trip, exploring a city, or just walking around, our service is designed to help you get the most out of your journey.
+                    Yes, whether youre going on a road trip, exploring a city, or just walking around, our service is designed to help you get the most out of your journey.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -138,7 +138,7 @@ export default function Support() {
                 <AccordionItem value="item-9">
                   <AccordionTrigger>Can I use the service without an internet connection?</AccordionTrigger>
                   <AccordionContent className="text-2xl">
-                    Yes, you can download important details and access them offline, so you don’t have to worry about losing connection.
+                    Yes, you can download important details and access them offline, so you dont have to worry about losing connection.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -147,7 +147,7 @@ export default function Support() {
                 <AccordionItem value="item-10">
                   <AccordionTrigger>How can I give feedback or report a problem?</AccordionTrigger>
                   <AccordionContent className="text-2xl">
-                    You can easily send us your feedback or report any issues through our support page. We’re here to help!
+                    You can easily send us your feedback or report any issues through our support page. Were here to help!
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
