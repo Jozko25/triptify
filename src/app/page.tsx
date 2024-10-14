@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import supabase from '@/utils/supabaseClient';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/use-toast';
@@ -20,14 +20,10 @@ import {
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardDescription, CardTitle } from '@/components/ui/card';
-import { MapPin} from 'lucide-react'; // Import icons
-import { TbArrowZigZag } from "react-icons/tb";
 import { FloatingNav } from '@/components/ui/floating-navbar';
 import MaxWidthWrapper from '@/components/ui/MaxWidthWrapper';
-import AboutCard from './components/functionality/AboutCard';
-import Footer from './components/functionality/Footer';
-import StepCard from './components/functionality/StepCard';
+import BackgroundGrid from '@/components/ui/grid/BackgroundGrid';
+import { Button } from '@/components/ui/button';
 
 const MAX_SUBMISSIONS = 4;
 const TIME_LIMIT = 4 * 60 * 1000; // 4 minutes in milliseconds
@@ -183,18 +179,19 @@ export default function Home() {
   if (isSuccess) {
     return (
       <MaxWidthWrapper>
-        <div className="flex items-center justify-center min-h-screen bg-zinc-300 text-primary-foreground pt-8 px-4 sm:px-8">
+        <div className="flex items-center justify-center min-h-screen bg-zinc-900 text-primary-foreground pt-8 px-4 sm:px-8">
           <div className="max-w-4xl w-full">
-            <motion.h1
-              className="text-4xl sm:text-6xl text-center mb-6 text-black"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-            >
-              Done!
-            </motion.h1>
+          <motion.h1
+          className="text-center text-3xl sm:text-4xl md:text-6xl mb-9 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600"
+          style={{ lineHeight: '1.2', padding: '0.25rem 0' }} // Adjust line height and add padding
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Done!
+        </motion.h1>
             <motion.p
-              className="text-center mb-8 text-black text-lg sm:text-3xl"
+              className="text-center mb-8 text-lg sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -203,7 +200,7 @@ export default function Home() {
               If you have any questions, contact <Link href="/support" className='hover:text-cyan-400 hover:underline'>support</Link>.
             </motion.p>
             <motion.p
-              className="text-sm sm:text-xl bg-rose-400 rounded-xl p-4 text-white text-center"
+              className="text-sm sm:text-xl rounded-xl p-4 text-white text-center bg-gradient-to-l from-zinc-500 via-zinc-500 to-zinc-600"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
@@ -213,7 +210,7 @@ export default function Home() {
             <div className="flex justify-center mt-6">
               <motion.button
                 onClick={() => setIsSuccess(false)}
-                className="bg-white text-black py-2 px-4 rounded-full text-lg sm:text-xl hover:bg-rose-400 hover:scale-120 transition"
+                className="bg-zinc-800 text-white py-2 px-4 rounded-full text-lg sm:text-xl hover:scale-120 transition"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 1.5 }}
@@ -229,40 +226,49 @@ export default function Home() {
 
   return (
     <MaxWidthWrapper>
+      <BackgroundGrid />
       <ToastProvider>
         <ToastViewport />
         <FloatingNav navItems={navItems} className="" />
 
         <motion.div
-          className="min-h-screen text-black w-full"
+          className="min-h-screen text-black w-full relative"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <header className="p-4 sm:p-6 flex flex-col items-center">
+          
+          <header className="p-4 sm:p-6 flex flex-col items-center relative z-10">
             {/* Optional header animations */}
           </header>
           
-          <main className="mx-auto px-4 py-8 sm:py-12 text-center w-full">
-          <motion.h1
-  className="text-3xl sm:text-5xl md:text-7xl mb-6 text-transparent bg-clip-text bg-gradient-to-r from-black via-zinc-600 to-zinc-800"
-  style={{ lineHeight: '1.2', padding: '0.25rem 0' }} // Adjust line height and add padding
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1 }}
->
-  Plan your routes the easiest way in seconds
-</motion.h1>
-
+          <main className="mx-auto px-4 py-8 sm:py-12 text-center w-full relative z-10">
+            <motion.h1
+              className="text-3xl sm:text-4xl md:text-6xl mb-5 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600"
+              style={{ lineHeight: '1.2', padding: '0.25rem 0' }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              Let's plan your trip the coolest way.
+            </motion.h1>
+            <motion.h1
+              className="text-md sm:text-md md:text-md text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 mb-6" // Added mb-6 for spacing
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              Estimated launch date: 1/1/2025
+            </motion.h1>
 
             <motion.p
-              className="text-center text-black text-lg sm:text-xl mb-3 mt-6 px-2 sm:px-4"
+              className="text-center text-lg sm:text-xl mb-6 px-2 sm:px-4 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
               {!isEmailSubmitted
-                ? "Leave us your email to be the first to get notified."
+                ? ""
                 : "Please provide your phone number to get instantly notified."}
             </motion.p>
 
@@ -277,7 +283,7 @@ export default function Home() {
                   >
                     <div>
                       <Input
-                        className='bg-zinc-800 text-white mb-2 mt-2 text-base sm:text-3xl rounded-xl'
+                        className='text-white mb-2 mt-2 text-base sm:text-3xl rounded-xl bg-gradient-to-r from-zinc-400 via-zinc-500 to-zinc-600'
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -287,16 +293,19 @@ export default function Home() {
                       <h1 className="text-center text-xs sm:text-sm text-zinc-400">Enter your email above</h1>
                     </div>
                   </motion.div>
+
                   <motion.button
                     type="submit"
-                    className="hover:scale-105 transition bg-gradient-to-r from-black via-black to-zinc-400 text-white py-2 px-4 rounded-full text-base sm:text-2xl mt-4 sm:mt-12"
+                    className="group hover:scale-105 transition-all duration-300 ease-in-out bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 p-[2px] rounded-lg mt-6 sm:mt-12 shadow-lg hover:shadow-xl"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 1 }}
                   >
-                    Join the waitlist
-
-
+                    <span className="block bg-zinc-900 rounded-lg px-6 py-3 transition-all duration-300 ease-in-out group-hover:bg-opacity-80">
+                      <span className="bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 bg-clip-text text-transparent text-xl sm:text-3xl font-bold transition-all duration-300 ease-in-out group-hover:bg-gradient-to-l">
+                        Join Now
+                      </span>
+                    </span>
                   </motion.button>
 
                 </>
@@ -311,33 +320,40 @@ export default function Home() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 1.5 }}
               >
-                <p className="rounded-xl text-lg sm:text-3xl mx-auto shadow-2xl px-4 py-2 sm:px-6 sm:py-3">Enter my phone number</p>
+                <p className="rounded-xl text-lg sm:text-3xl bg-zinc-500 mx-auto shadow-2xl px-4 py-2 sm:px-6 sm:py-3 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600">Re-enter my phone number</p>
               </motion.button>
             </div>
             
             <AlertDialog open={isDialogOpen} onOpenChange={(open) => setIsDialogOpen(open)}>
-              <AlertDialogContent className='bg-zinc-300'>
-                <AlertDialogHeader>
-                  <h2 className="text-2xl sm:text-3xl text-black">
+              <AlertDialogContent className="bg-gradient-to-r from-zinc-800 to-zinc-900 border border-zinc-700 rounded-xl shadow-2xl p-6">
+                <AlertDialogHeader className="mb-6">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-400 to-zinc-300 mb-2">
                     Just one more thing.
                   </h2>
-                  <p className="text-sm sm:text-md text-black mt-2">
-                    Leave us your phone number if you&apos;re interested.
+                  <p className="text-sm sm:text-lg text-zinc-400">
+                    Leave us your phone number to be notified instantly.
                   </p>
                 </AlertDialogHeader>
                 <form onSubmit={handlePhoneNumberSubmit} className="flex flex-col">
                   <PhoneInput
-                    placeholder="Enter phone number"
+                    placeholder="Country code and phone number"
                     value={phoneNumber}
                     onChange={setPhoneNumber}
                     defaultCountry="US"
-                    className="custom-phone-input mb-4 text-black rounded-lg p-2 focus:outline-none text-base sm:text-2xl transition"
+                    className="custom-phone-input mb-6 text-zinc-300 bg-zinc-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-zinc-500 text-base sm:text-lg transition"
+                    inputClassName="bg-zinc-700 text-zinc-300"
                   />
 
-                  <AlertDialogFooter>
-                    <AlertDialogCancel onClick={() => setIsDialogOpen(false)} className="hover:scale-105 transition hover:bg-zinc-400 text-black py-2 px-4 rounded-full text-sm sm:text-base">Cancel</AlertDialogCancel>
-                    <AlertDialogAction type="submit"
-                      className="bg-white hover:scale-105 transition hover:bg-rose-400 text-black py-2 px-4 rounded-full text-sm sm:text-base"
+                  <AlertDialogFooter className="flex justify-end space-x-3 mt-4">
+                    <AlertDialogCancel 
+                      onClick={() => setIsDialogOpen(false)} 
+                      className="px-4 py-2 text-sm sm:text-base font-medium rounded-lg bg-zinc-700 text-zinc-300 hover:bg-zinc-600 transition-colors duration-200"
+                    >
+                      Cancel
+                    </AlertDialogCancel>
+                    <AlertDialogAction 
+                      type="submit"
+                      className="px-4 py-2 text-sm sm:text-base font-medium rounded-lg bg-gradient-to-r from-zinc-400 via-zinc-500 to-zinc-600 text-zinc-900 hover:from-zinc-300 hover:to-zinc-500 transition-all duration-200 shadow-md hover:shadow-lg"
                     >
                       Submit
                     </AlertDialogAction>
@@ -345,58 +361,63 @@ export default function Home() {
                 </form>
               </AlertDialogContent>
             </AlertDialog>
+
+            {/* Move the About Triptify section here */}
+            <motion.div
+              className="container mx-auto px-4 py-8 sm:py-12"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1.5 }}
+            >
+              <section className="text-center mb-8 sm:mb-12 px-4 sm:px-0">
+                <h2 className="text-3xl sm:text-4xl mb-4 sm:mb-7 font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600">How?</h2>
+                <p className="mb-5 text-base sm:text-lg lg:text-2xl max-w-2xl mx-auto text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600">
+                  Triptify simplifies route planning to the easiest steps. Submit your preferences and let us do the rest.
+                </p>
+                <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-4 mt-6">
+                  <div className="flex flex-col items-center w-full md:w-auto md:max-w-[400px]">
+                    <span className="text-4xl sm:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 glow-number glow-1 leading-relaxed py-2">
+                      Login.
+                    </span>
+                    <img 
+                      src="/a.PNG" 
+                      alt="Login Step" 
+                      className="w-full md:w-[400px] h-auto rounded-3xl shadow-lg" 
+                    />
+                  </div>
+                  <div className="flex flex-col items-center w-full md:w-auto md:max-w-[400px]">
+                    <span className="text-4xl sm:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 glow-number glow-1 leading-relaxed py-2">
+                      List.
+                    </span>
+                    <img 
+                      src="/b.PNG" 
+                      alt="List Step" 
+                      className="w-full md:w-[400px] h-auto rounded-3xl shadow-lg" 
+                    />
+                  </div>
+                  <div className="flex flex-col items-center w-full md:w-auto md:max-w-[400px]">
+                    <span className="text-4xl sm:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 glow-number glow-1 leading-relaxed py-2">
+                      Go.
+                    </span>
+                    <img 
+                      src="/c.PNG" 
+                      alt="Go Step" 
+                      className="w-full md:w-[400px] h-auto rounded-3xl shadow-lg" 
+                    />
+                  </div>
+                </div>
+              </section>
+            </motion.div>
           </main>
 
-          {/* New Content Section */}
-          <motion.div
-            className="container mx-auto px-4 py-8 sm:py-12"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.5 }}
-          >
-            <main className="container mx-auto px-4 py-1">
-              <section className="text-center mb-8 sm:mb-12">
-                <h2 className="text-2xl sm:text-4xl mb-4 sm:mb-7 text-black">About Triptify</h2>
-                <p className="text-lg sm:text-2xl max-w-2xl mx-auto px-2 sm:px-0">
-                  Triptify is your intelligent companion for planning efficient and enjoyable routes. 
-                  Whether you&apos;re commuting, road-tripping, or exploring a new city, we&apos;ve got you covered.
-                </p>
-              </section>
-              
-               <AboutCard/>
-              
-              <h1 className="text-center text-4xl mb-3">Know everything you need in three steps</h1>
-              <p className="text-center text-xl mb-3">Never know the hassle of planning a trip all night again.</p>
-              
-              <StepCard/>
-              
-              <div className="flex justify-center mt-6 sm:mt-10 text-8xl sm:text-9xl">
-                <TbArrowZigZag className='text-8xl sm:text-9xl hover:text-rose-400 transition' />
-              </div>
-
-              <div className="flex justify-center mt-6 sm:mt-10 text-lg sm:text-3xl hover:underline hover:text-rose-400">
-                <Link href="/support"><p>I want to ask something</p></Link>
-              </div>
-
-              <Card className="bg-white backdrop-blur-lg border-none text-black text-center shadow-2xl mt-8 sm:mt-12 p-4 sm:p-6 rounded-lg">
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-center text-lg sm:text-xl">
-                    <MapPin className="mr-2" />
-                    Ready to Plan Smarter Routes?
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-black text-base sm:text-xl">
-                    Join thousands of satisfied users and start optimizing your journeys today.
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </main>
-          </motion.div>
+          {/* Footer links */}
+          <div className="flex flex-col items-center sm:mt-10 text-sm sm:text-sm text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600">
+            <p>Our <Link className='hover:underline hover:text-blue-500' href="/termsOfService">Terms of service</Link> and <Link className='hover:underline hover:text-blue-500' href="/privacyPolicy">Privacy policy</Link></p>
+          </div>
+          <div className="mb-6 flex flex-col items-center sm:mt-10 text-sm sm:text-sm text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600">
+            <p><Link className='hover:underline hover:text-blue-500' href="/support">Support</Link></p>
+          </div>
           
-          <footer className="mb-5 text-black flex text-center py-4 mt-2 px-2 sm:px-4">
-            <Footer/>
-          </footer>
         </motion.div>
       </ToastProvider>
     </MaxWidthWrapper>

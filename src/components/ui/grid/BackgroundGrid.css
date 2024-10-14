@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+  
+html, body {
+    height: 100%; /* Ensure full height */
+    margin: 0; /* Remove default margin */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+  
+.background-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: 
+        radial-gradient(ellipse at center, rgba(45, 55, 72, 0.1) 0%, rgba(45, 55, 72, 0) 80%),
+        radial-gradient(ellipse at center, rgba(45, 55, 72, 0.1) 0%, rgba(45, 55, 72, 0) 80%);
+    background-size: 100% 100%, 100% 100%;
+    background-image: 
+        repeating-linear-gradient(0deg, rgba(45, 55, 72, 0.1) 0%, rgba(45, 55, 72, 0.1) 1px, transparent 1px, transparent 75px),
+        repeating-linear-gradient(90deg, rgba(45, 55, 72, 0.1) 0%, rgba(45, 55, 72, 0.1) 1px, transparent 1px, transparent 75px);
+    background-position: center, center;
+    z-index: -1;
+}

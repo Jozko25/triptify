@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({
+const inter = Manrope({
   subsets: ["latin"],
-  weight: "700", // 700 corresponds to bold
+  weight: "400", // 700 corresponds to bold
 });
 
 export const metadata: Metadata = {

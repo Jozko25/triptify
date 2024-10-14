@@ -185,6 +185,36 @@
 
   /* Apply Background and Foreground Colors */
   body {
-    @apply bg-zinc-300 text-foreground; /* Background and text color */
+    @apply bg-zinc-900 text-foreground; /* Background and text color */
   }
+}
+
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); }
+  50% { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.5)); }
+}
+
+.glow-number {
+  opacity: 0.3;
+  transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.glow-1 {
+  transition-delay: 2s;
+}
+
+.glow-2 {
+  transition-delay: 4s;
+}
+
+.glow-3 {
+  transition-delay: 6s;
+}
+
+.glow-number.glow-1,
+.glow-number.glow-2,
+.glow-number.glow-3 {
+  opacity: 1;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6)) 
+          drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
 }
