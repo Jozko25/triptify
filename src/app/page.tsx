@@ -250,7 +250,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
             >
-              Let's plan your trip the coolest way.
+              Lets plan your trip the coolest way.
             </motion.h1>
             <motion.h1
               className="text-md sm:text-md md:text-md text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 mb-6" // Added mb-6 for spacing
