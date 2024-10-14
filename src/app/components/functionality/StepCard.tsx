@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { RiNumber1, RiNumber2, RiNumber3 } from 'react-icons/ri';
 import Loading from '@/components/ui/loader';
-import AnimatedTie from '@/components/ui/animatedTie/animatedTie';
 
 const StepCard = () => {
   const [isClient, setIsClient] = useState(false);
@@ -73,7 +72,6 @@ const StepCard = () => {
               <CardDescription className="text-white text-base sm:text-xl">
                 Get information you need, tailored, in real-time updates.
                 <div className="flex justify-center">
-                  <AnimatedTie/>
                 </div>
               </CardDescription>
             </CardContent>
