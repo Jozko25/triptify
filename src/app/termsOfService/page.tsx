@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { ToastProvider, ToastViewport } from '@/components/ui/toast';
-import { FloatingNav } from '@/components/ui/floating-navbar';
 import Link from 'next/link';
 import BackgroundGrid from '@/components/ui/grid/BackgroundGrid';
 import MaxWidthWrapper from '@/components/ui/MaxWidthWrapper';
@@ -26,7 +25,6 @@ export default function TermsOfService() {
       <div className="relative min-h-screen overflow-hidden">
         <BackgroundGrid/>
         <ToastViewport />
-        <FloatingNav navItems={navItems} className="z-50" />
         <div className="relative z-10 min-h-screen bg-zinc-900/50 flex flex-col py-12 px-4">
           <main className="container mx-auto text-left">
             <h1 className="text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 leading-[1.2]">Terms of Service</h1>

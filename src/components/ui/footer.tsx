@@ -20,6 +20,9 @@ export default function Footer() {
           <Link href="/support" className="hover:text-gray-200 transition-colors">
             Support
           </Link>
+          <Link href="/blog" className="hover:text-gray-200 transition-colors">
+            Blog
+          </Link>
         </nav>
       </div>
     </footer>

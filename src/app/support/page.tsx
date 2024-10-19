@@ -8,7 +8,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FloatingNav } from '@/components/ui/floating-navbar';
 import Link from 'next/link';
 import BackgroundGrid from '@/components/ui/grid/BackgroundGrid';
 import Footer from '@/components/ui/footer';
@@ -32,8 +31,7 @@ export default function Support() {
       <div className="relative min-h-screen overflow-hidden">
         <BackgroundGrid />
         <ToastViewport />
-        <FloatingNav navItems={navItems} className="z-50" />
-        <div className="relative z-10 min-h-screen bg-zinc-900/50 flex flex-col">
+=        <div className="relative z-10 min-h-screen bg-zinc-900/50 flex flex-col">
           <header className="p-6 flex flex-col items-center"></header>
 
           <main className="container mx-auto px-4 py-12 text-center">

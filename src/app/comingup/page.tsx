@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { ToastProvider, ToastViewport } from '@/components/ui/toast';
-import { FloatingNav } from '@/components/ui/floating-navbar';
 import Link from 'next/link';
 
 
@@ -21,7 +20,6 @@ export default function Support() {
   return (
     <ToastProvider>
       <ToastViewport />
-      <FloatingNav navItems={navItems} className="" />
       <div className="min-h-screen bg-zinc-900 flex flex-col justify-center items-center">
         <header className="p-6 flex flex-col items-center"></header>
 

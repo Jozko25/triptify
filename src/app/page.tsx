@@ -20,10 +20,10 @@ import {
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 import Link from 'next/link';
-import { FloatingNav } from '@/components/ui/floating-navbar';
 import MaxWidthWrapper from '@/components/ui/MaxWidthWrapper';
 import Mobilcek from '@/components/ui/mobilcek';
 import Footer from '@/components/ui/footer';
+import BackgroundGrid from '@/components/ui/grid/BackgroundGrid';
 
 const MAX_SUBMISSIONS = 4;
 const TIME_LIMIT = 4 * 60 * 1000; // 4 minutes in milliseconds
@@ -225,11 +225,11 @@ export default function Home() {
   }
 
   return (
-    <MaxWidthWrapper>
-      {/* <BackgroundGrid /> */}
+    <div>
+      <MaxWidthWrapper>
+        <BackgroundGrid/>
       <ToastProvider>
         <ToastViewport />
-        <FloatingNav navItems={navItems} className="" />
 
         <motion.div
           className="min-h-screen text-black w-full relative"
@@ -284,7 +284,7 @@ export default function Home() {
                   >
                     <div>
                       <Input
-                        className='f text-white mb-2 mt-2 text-base sm:text-3xl rounded-xl bg-gradient-to-r from-zinc-400 via-zinc-500 to-zinc-600'
+                        className='f text-white mb-2 mt-2 text-base sm:text-3xl rounded-xl bg-gradient-to-r from-zinc-600 via-zinc-500 to-zinc-600'
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -297,7 +297,7 @@ export default function Home() {
 
                   <motion.button
                     type="submit"
-                    className="group hover:scale-105 transition-all duration-300 ease-in-out bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 p-[2px] rounded-lg mt-6 sm:mt-12 shadow-lg hover:shadow-xl"
+                    className="group hover:scale-105 transition-all duration-300 ease-in-out bg-gradient-to-r from-zinc-500 via-zinc-500 to-zinc-600 p-[2px] rounded-lg mt-6 sm:mt-12 shadow-lg hover:shadow-xl"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1}}
@@ -368,5 +368,6 @@ export default function Home() {
         </motion.div>
       </ToastProvider>
     </MaxWidthWrapper>
+    </div>
   );
 }

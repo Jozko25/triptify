@@ -25,6 +25,7 @@ export default function Mobilcek() {
               autoPlay
               muted
               playsInline
+              loop
             />
           </div>
 
