@@ -15,9 +15,9 @@ export default function Mobilcek() {
           {/* Video Section */}
           <div className="relative w-full h-full flex items-center justify-center">
             <video
-              src="/mobilcek.mp4"
-              width={3544}
-              height={2656}
+              src="/pica.mp4"
+              width={1200}
+              height={600}
               className="object-contain w-full h-auto rounded-lg"
               style={{ maxWidth: '100%', height: 'auto' }}
               autoPlay
@@ -29,9 +29,9 @@ export default function Mobilcek() {
           {/* Second Video Section */}
           <div className="relative w-full h-full flex items-center justify-center">
             <video
-              src="/jujuju.mp4"
-              width={3544}
-              height={2656}
+              src="/kurva.mp4"
+              width={1500}
+              height={1000}
               className="object-contain w-full h-auto rounded-lg"
               style={{ maxWidth: '100%', height: 'auto' }}
               autoPlay
