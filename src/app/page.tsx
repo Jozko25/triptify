@@ -341,8 +341,8 @@ export default function Home() {
                     value={phoneNumber}
                     onChange={setPhoneNumber}
                     defaultCountry="US"
-                    className="custom-phone-input mb-6 text-zinc-300 bg-zinc-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-zinc-500 text-base sm:text-lg transition"
-                    inputClassName="bg-zinc-700 text-zinc-300"
+                    className="custom-phone-input py-3 mb-6 text-black bg-zinc-900 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-zinc-500 text-base sm:text-lg transition"
+                    inputClassName="bg-zinc-700 text-zinc-600"
                   />
 
                   <AlertDialogFooter className="flex justify-end space-x-3 mt-4">

@@ -13,13 +13,15 @@ export default function Mobilcek() {
           </div>
 
           {/* Video Section */}
-          <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative flex items-center justify-center" style={{ width: '100%', height: '600px' }}> {/* Adjust height as needed */}
             <video
-              src="/pica.mp4"
-              width={1200}
-              height={600}
-              className="object-contain w-full h-auto rounded-lg"
-              style={{ maxWidth: '100%', height: 'auto' }}
+              src="/kraken.mp4"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover', // This will make sure the video fills the area
+                borderRadius: '0.5rem' // Rounded corners
+              }}
               autoPlay
               muted
               playsInline
@@ -33,7 +35,7 @@ export default function Mobilcek() {
               width={1500}
               height={1000}
               className="object-contain w-full h-auto rounded-lg"
-              style={{ maxWidth: '100%', height: 'auto' }}
+              style={{ maxWidth: '100%', height: 'auto', }}
               autoPlay
               muted
               playsInline
