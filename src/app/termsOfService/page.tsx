@@ -5,6 +5,8 @@ import { ToastProvider, ToastViewport } from '@/components/ui/toast';
 import { FloatingNav } from '@/components/ui/floating-navbar';
 import Link from 'next/link';
 import BackgroundGrid from '@/components/ui/grid/BackgroundGrid';
+import MaxWidthWrapper from '@/components/ui/MaxWidthWrapper';
+import Footer from '@/components/ui/footer';
 
 const navItems = [
   {
@@ -19,6 +21,7 @@ const navItems = [
 
 export default function TermsOfService() {
   return (
+    <MaxWidthWrapper>
     <ToastProvider>
       <div className="relative min-h-screen overflow-hidden">
         <BackgroundGrid/>
@@ -106,5 +109,7 @@ export default function TermsOfService() {
         </div>
       </div>
     </ToastProvider>
+    <Footer/>
+    </MaxWidthWrapper>
   );
 }

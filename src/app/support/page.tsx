@@ -11,6 +11,8 @@ import {
 import { FloatingNav } from '@/components/ui/floating-navbar';
 import Link from 'next/link';
 import BackgroundGrid from '@/components/ui/grid/BackgroundGrid';
+import Footer from '@/components/ui/footer';
+import MaxWidthWrapper from '@/components/ui/MaxWidthWrapper';
 
 const navItems = [
   {
@@ -25,6 +27,7 @@ const navItems = [
 
 export default function Support() {
   return (
+    <MaxWidthWrapper>
     <ToastProvider>
       <div className="relative min-h-screen overflow-hidden">
         <BackgroundGrid />
@@ -170,6 +173,8 @@ export default function Support() {
         <h1 className="text-center transition text-white hover:text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 text-2xl">Back to home</h1>
       </div>
       </Link>
+      <Footer/>
     </ToastProvider>
+    </MaxWidthWrapper> 
   );
 }

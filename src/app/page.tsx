@@ -22,8 +22,8 @@ import PhoneInput from 'react-phone-number-input';
 import Link from 'next/link';
 import { FloatingNav } from '@/components/ui/floating-navbar';
 import MaxWidthWrapper from '@/components/ui/MaxWidthWrapper';
-import BackgroundGrid from '@/components/ui/grid/BackgroundGrid';
-import { Button } from '@/components/ui/button';
+import Mobilcek from '@/components/ui/mobilcek';
+import Footer from '@/components/ui/footer';
 
 const MAX_SUBMISSIONS = 4;
 const TIME_LIMIT = 4 * 60 * 1000; // 4 minutes in milliseconds
@@ -226,7 +226,7 @@ export default function Home() {
 
   return (
     <MaxWidthWrapper>
-      <BackgroundGrid />
+      {/* <BackgroundGrid /> */}
       <ToastProvider>
         <ToastViewport />
         <FloatingNav navItems={navItems} className="" />
@@ -244,14 +244,15 @@ export default function Home() {
           
           <main className="mx-auto px-4 py-8 sm:py-12 text-center w-full relative z-10">
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-6xl mb-5 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600"
-              style={{ lineHeight: '1.2', padding: '0.25rem 0' }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-            >
-              Lets plan your trip the coolest way.
-            </motion.h1>
+            className="text-3xl sm:text-4xl md:text-6xl mb-5 font-light text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600"
+            style={{ lineHeight: '1.2', padding: '0.25rem 0' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            Let&apos;s plan your trip the coolest way.
+          </motion.h1>
+
             <motion.h1
               className="text-md sm:text-md md:text-md text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 mb-6" // Added mb-6 for spacing
               initial={{ opacity: 0, y: 20 }}
@@ -283,7 +284,7 @@ export default function Home() {
                   >
                     <div>
                       <Input
-                        className='text-white mb-2 mt-2 text-base sm:text-3xl rounded-xl bg-gradient-to-r from-zinc-400 via-zinc-500 to-zinc-600'
+                        className='f text-white mb-2 mt-2 text-base sm:text-3xl rounded-xl bg-gradient-to-r from-zinc-400 via-zinc-500 to-zinc-600'
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -299,7 +300,7 @@ export default function Home() {
                     className="group hover:scale-105 transition-all duration-300 ease-in-out bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 p-[2px] rounded-lg mt-6 sm:mt-12 shadow-lg hover:shadow-xl"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 1 }}
+                    transition={{ duration: 1}}
                   >
                     <span className="block bg-zinc-900 rounded-lg px-6 py-3 transition-all duration-300 ease-in-out group-hover:bg-opacity-80">
                       <span className="bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 bg-clip-text text-transparent text-xl sm:text-3xl font-bold transition-all duration-300 ease-in-out group-hover:bg-gradient-to-l">
@@ -318,7 +319,7 @@ export default function Home() {
                 onClick={() => setIsDialogOpen(true)}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 1.5 }}
+                transition={{ duration: 1}}
               >
                 <p className="rounded-xl text-lg sm:text-3xl bg-zinc-500 mx-auto shadow-2xl px-4 py-2 sm:px-6 sm:py-3 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600">Re-enter my phone number</p>
               </motion.button>
@@ -361,63 +362,9 @@ export default function Home() {
                 </form>
               </AlertDialogContent>
             </AlertDialog>
-
-            {/* Move the About Triptify section here */}
-            <motion.div
-              className="container mx-auto px-4 py-8 sm:py-12"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.5 }}
-            >
-              <section className="text-center mb-8 sm:mb-12 px-4 sm:px-0">
-                <h2 className="text-3xl sm:text-4xl mb-4 sm:mb-7 font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600">How?</h2>
-                <p className="mb-5 text-base sm:text-lg lg:text-2xl max-w-2xl mx-auto text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600">
-                  Triptify simplifies route planning to the easiest steps. Submit your preferences and let us do the rest.
-                </p>
-                <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-4 mt-6">
-                  <div className="flex flex-col items-center w-full md:w-auto md:max-w-[400px]">
-                    <span className="text-4xl sm:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 glow-number glow-1 leading-relaxed py-2">
-                      Login.
-                    </span>
-                    <img 
-                      src="/a.PNG" 
-                      alt="Login Step" 
-                      className="w-full md:w-[400px] h-auto rounded-3xl shadow-lg" 
-                    />
-                  </div>
-                  <div className="flex flex-col items-center w-full md:w-auto md:max-w-[400px]">
-                    <span className="text-4xl sm:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 glow-number glow-1 leading-relaxed py-2">
-                      List.
-                    </span>
-                    <img 
-                      src="/b.PNG" 
-                      alt="List Step" 
-                      className="w-full md:w-[400px] h-auto rounded-3xl shadow-lg" 
-                    />
-                  </div>
-                  <div className="flex flex-col items-center w-full md:w-auto md:max-w-[400px]">
-                    <span className="text-4xl sm:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 glow-number glow-1 leading-relaxed py-2">
-                      Go.
-                    </span>
-                    <img 
-                      src="/c.PNG" 
-                      alt="Go Step" 
-                      className="w-full md:w-[400px] h-auto rounded-3xl shadow-lg" 
-                    />
-                  </div>
-                </div>
-              </section>
-            </motion.div>
+            <Mobilcek/>
           </main>
-
-          {/* Footer links */}
-          <div className="flex flex-col items-center sm:mt-10 text-sm sm:text-sm text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600">
-            <p>Our <Link className='hover:underline hover:text-blue-500' href="/termsOfService">Terms of service</Link> and <Link className='hover:underline hover:text-blue-500' href="/privacyPolicy">Privacy policy</Link></p>
-          </div>
-          <div className="mb-6 flex flex-col items-center sm:mt-10 text-sm sm:text-sm text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600">
-            <p><Link className='hover:underline hover:text-blue-500' href="/support">Support</Link></p>
-          </div>
-          
+            <Footer/>
         </motion.div>
       </ToastProvider>
     </MaxWidthWrapper>
