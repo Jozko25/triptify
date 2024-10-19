@@ -302,8 +302,8 @@ export default function Home() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1}}
                   >
-                    <span className="block bg-zinc-900 rounded-lg px-6 py-3 transition-all duration-300 ease-in-out group-hover:bg-opacity-80">
-                      <span className="bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 bg-clip-text text-transparent text-xl sm:text-3xl font-bold transition-all duration-300 ease-in-out group-hover:bg-gradient-to-l">
+                    <span className="block bg-zinc-900 rounded-lg px-4 py-3 transition-all duration-300 ease-in-out group-hover:bg-opacity-80">
+                      <span className="bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 bg-clip-text text-transparent text-3xl font-bold transition-all duration-300 ease-in-out group-hover:bg-gradient-to-l">
                         Join Now
                       </span>
                     </span>

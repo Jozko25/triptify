@@ -50,7 +50,7 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "hidden md:flex fixed top-10 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-black bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] py-2 px-6 items-center justify-center max-w-fit",
+          "hidden md:flex fixed top-10 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-black bg-zinc-900 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] py-2 px-6 items-center justify-center max-w-fit",
           className
         )}
       >
@@ -60,7 +60,7 @@ export const FloatingNav = ({
               key={`link=${idx}`}
               href={navItem.link}
               className={cn(
-                "relative text-xl text-black dark:text-neutral-50 items-center flex space-x-1"
+                "relative text-xl text-white hover:text-zinc-300 dark:text-neutral-50 items-center flex space-x-1"
               )}
             >
               <span className="block md:hidden">{navItem.icon}</span>
