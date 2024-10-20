@@ -1,6 +1,4 @@
 import { BarChart, Clock, Home, Layers, MapPin, Menu, MoreVertical, Plus, Search, Settings, Settings2, Users } from "lucide-react"
-import Link from "next/link"
-
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -11,7 +9,6 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import Aside from "@/components/ui/aside"
-import Ikonka from "@/components/ui/ikonka"
 
 export default function Dashboard() {
   return (
@@ -32,7 +29,6 @@ export default function Dashboard() {
                 type="search"
               />
             </form>
-            <Ikonka/>
           </div>
         </header>
         <main className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
