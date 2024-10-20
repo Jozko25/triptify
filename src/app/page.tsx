@@ -24,7 +24,6 @@ import MaxWidthWrapper from '@/components/ui/MaxWidthWrapper';
 import Mobilcek from '@/components/ui/mobilcek';
 import Footer from '@/components/ui/footer';
 import BackgroundGrid from '@/components/ui/grid/BackgroundGrid';
-
 const MAX_SUBMISSIONS = 4;
 const TIME_LIMIT = 4 * 60 * 1000; // 4 minutes in milliseconds
 

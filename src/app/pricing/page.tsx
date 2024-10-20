@@ -80,7 +80,7 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-2xl">
                   {plan.name === "Enterprise" ? "Contact Sales" : "Get Started"}
                 </button>
               </div>

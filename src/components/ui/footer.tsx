@@ -8,14 +8,14 @@ export default function Footer() {
           Powered by advanced AI algorithms for optimal route planning
         </div>
         <nav className="flex space-x-4">
-          <Link href="/comingup" className="hover:text-gray-200 transition-colors">
-            About
-          </Link>
-          <Link href="/privacyPolicy" className="hover:text-gray-200 transition-colors">
+        <Link href="/privacyPolicy" className="hover:text-gray-200 transition-colors">
             Privacy
           </Link>
           <Link href="/termsOfService" className="hover:text-gray-200 transition-colors">
             Terms
+          </Link>
+          <Link href="/comingup" className="hover:text-gray-200 transition-colors">
+            About
           </Link>
           <Link href="/support" className="hover:text-gray-200 transition-colors">
             Support
