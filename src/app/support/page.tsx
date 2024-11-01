@@ -108,22 +108,22 @@ export default function Support() {
                   </Accordion>
 
                   <Accordion type="single" collapsible>
-                    <AccordionItem value="item-9">
-                      <AccordionTrigger>Can I use the service without an internet connection?</AccordionTrigger>
-                      <AccordionContent className="text-2xl">
-                        Yes, you can download important details and access them offline, so you don't have to worry about losing connection.
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
+                  <AccordionItem value="item-9">
+                    <AccordionTrigger>Can I use the service without an internet connection?</AccordionTrigger>
+                    <AccordionContent className="text-2xl">
+                      Yes, you can download important details and access them offline, so you don't have to worry about losing connection.
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
 
-                  <Accordion type="single" collapsible>
-                    <AccordionItem value="item-10">
-                      <AccordionTrigger>How can I give feedback or report a problem?</AccordionTrigger>
-                      <AccordionContent className="text-2xl">
-                        You can easily send us your feedback or report any issues through our support page. We're here to help!
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
+                <Accordion type="single" collapsible>
+                <AccordionItem value="item-10">
+                  <AccordionTrigger>How can I give feedback or report a problem?</AccordionTrigger>
+                  <AccordionContent className="text-2xl">
+                    You can easily send us your feedback or report any issues through our support page. We're here to help!
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
 
                   <Accordion type="single" collapsible>
                     <AccordionItem value="item-11">
