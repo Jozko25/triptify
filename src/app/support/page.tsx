@@ -93,34 +93,7 @@ export default function Support() {
                     <AccordionItem value="item-4">
                       <AccordionTrigger>Can I adjust the recommendations to fit my interests?</AccordionTrigger>
                       <AccordionContent className="text-2xl">
-                        Absolutely! You can tell us what you're interested in, like sightseeing or dining, and we'll adjust the recommendations accordingly.
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-
-                  <Accordion type="single" collapsible>
-                    <AccordionItem value="item-5">
-                      <AccordionTrigger>How do you find out about local attractions?</AccordionTrigger>
-                      <AccordionContent className="text-2xl">
-                        We gather information from local sources, reviews, and recommendations to show you the best places to visit and things to do.
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-
-                  <Accordion type="single" collapsible>
-                    <AccordionItem value="item-6">
-                      <AccordionTrigger>Is this service useful for different types of trips?</AccordionTrigger>
-                      <AccordionContent className="text-2xl">
-                        Yes, whether you're going on a road trip, exploring a city, or just walking around, our service is designed to help you get the most out of your journey.
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-
-                  <Accordion type="single" collapsible>
-                    <AccordionItem value="item-7">
-                      <AccordionTrigger>Can I use this on my phone?</AccordionTrigger>
-                      <AccordionContent className="text-2xl">
-                        Definitely! You can use our service on both your computer and smartphone, so you can plan and explore wherever you are.
+                      Definitely! You can use our service on both your computer and smartphone, so you can plan and explore wherever you are.
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>

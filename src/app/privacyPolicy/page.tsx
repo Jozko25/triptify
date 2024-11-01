@@ -91,7 +91,7 @@ export default function TermsOfService() {
                   We take reasonable measures to protect your information from unauthorized access, use, or disclosure. However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee its absolute security.
                 </p>
 
-                <h2 className="text-2xl font-semibold mt-8 text-white">7. Children's Privacy</h2>
+                <h2 className="text-2xl font-semibold mt-8 text-white">7. Children&apos;s Privacy</h2>
                 <p className='text-white'>
                   Our Service is not intended for use by children under the age of 13. We do not knowingly collect personal information from children. If we become aware that we have collected personal information from a child, we will take steps to delete such information.
                 </p>
