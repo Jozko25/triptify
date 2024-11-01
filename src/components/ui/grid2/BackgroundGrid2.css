@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+html, body {
+    height: 100%; /* Ensure full height */
+    margin: 0; /* Remove default margin */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.background-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #d4d4d8; /* Set background to zinc-300 */
+    background-size: 100% 100%, 100% 100%, 100% 100%; /* Ensure all layers cover the full area */
+    background-image: 
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 75px), /* Horizontal gray lines */
+        repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 75px); /* Vertical gray lines */
+    background-position: center, center, center; /* Center all layers */
+    z-index: -1;
+}

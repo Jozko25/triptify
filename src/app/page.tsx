@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import supabase from '@/utils/supabaseClient';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/use-toast';
 import {
@@ -18,16 +17,19 @@ import {
   ToastViewport,
 } from '@/components/ui/toast';
 import 'react-phone-number-input/style.css';
+import { SessionProvider } from "next-auth/react"; // Import SessionProvider
 import PhoneInput from 'react-phone-number-input';
 import Link from 'next/link';
 import MaxWidthWrapper from '@/components/ui/MaxWidthWrapper';
 import Mobilcek from '@/components/ui/mobilcek';
 import Footer from '@/components/ui/footer';
-import BackgroundGrid from '@/components/ui/grid/BackgroundGrid';
+import supabase from '../../lib/supabaseClient';
+import Mobilcek2 from '@/components/ui/Mobilcek2';
+import { Spotlight } from '@/components/ui/spotlight';
 const MAX_SUBMISSIONS = 4;
 const TIME_LIMIT = 4 * 60 * 1000; // 4 minutes in milliseconds
 
-export default function Home() {
+export default function Home(){
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState<string | undefined>();
   const [isEmailSubmitted, setIsEmailSubmitted] = useState(false);
@@ -178,10 +180,11 @@ export default function Home() {
   if (isSuccess) {
     return (
       <MaxWidthWrapper>
-        <div className="flex items-center justify-center min-h-screen bg-zinc-900 text-primary-foreground pt-8 px-4 sm:px-8">
+        <div className='bg-[#0c0c12] rounded-3xl mt-3 mx-3 mb-3'>
+        <div className="flex items-center justify-center min-h-screen text-primary-foreground pt-8 px-4 sm:px-8">
           <div className="max-w-4xl w-full">
           <motion.h1
-          className="text-center text-3xl sm:text-4xl md:text-6xl mb-9 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600"
+          className="text-center text-3xl sm:text-4xl md:text-6xl mb-9 text-white"
           style={{ lineHeight: '1.2', padding: '0.25rem 0' }} // Adjust line height and add padding
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -190,7 +193,7 @@ export default function Home() {
           Done!
         </motion.h1>
             <motion.p
-              className="text-center mb-8 text-lg sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600"
+              className="text-center mb-8 text-lg sm:text-3xl text-white"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -199,7 +202,7 @@ export default function Home() {
               If you have any questions, contact <Link href="/support" className='hover:text-cyan-400 hover:underline'>support</Link>.
             </motion.p>
             <motion.p
-              className="text-sm sm:text-xl rounded-xl p-4 text-white text-center bg-gradient-to-l from-zinc-500 via-zinc-500 to-zinc-600"
+              className="text-sm sm:text-xl rounded-xl p-4 text-black text-center bg-[#adadcc]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
@@ -209,7 +212,7 @@ export default function Home() {
             <div className="flex justify-center mt-6">
               <motion.button
                 onClick={() => setIsSuccess(false)}
-                className="bg-zinc-800 text-white py-2 px-4 rounded-full text-lg sm:text-xl hover:scale-120 transition"
+                className="bg-black text-white py-2 px-4 rounded-full text-lg sm:text-xl hover:scale-120 transition"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 1.5 }}
@@ -219,14 +222,16 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
       </MaxWidthWrapper>
     );
   }
 
   return (
-    <div>
+    <div className='rounded-3xl mt-3'>
+      <div className='bg-[#0c0c12] rounded-3xl mx-3'>
       <MaxWidthWrapper>
-        <BackgroundGrid/>
+      <Spotlight className="absolute top-0 right-0 transform translate-x-[-20%] translate-y-[-20%]" />
       <ToastProvider>
         <ToastViewport />
 
@@ -243,7 +248,7 @@ export default function Home() {
           
           <main className="mx-auto px-4 py-8 sm:py-12 text-center w-full relative z-10">
             <motion.h1
-            className="text-3xl sm:text-4xl md:text-6xl mb-5 font-light text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600"
+            className="text-3xl sm:text-4xl md:text-6xl mb-5 font-bold text-[#adadcc]"
             style={{ lineHeight: '1.2', padding: '0.25rem 0' }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -283,14 +288,14 @@ export default function Home() {
                   >
                     <div>
                       <Input
-                        className='f text-white mb-2 mt-2 text-base sm:text-3xl rounded-xl bg-gradient-to-r from-zinc-600 via-zinc-500 to-zinc-600'
+                        className=' text-black mb-2 mt-2 text-lg sm:text-3xl rounded-xl bg-white'
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                         placeholder=""
                       />
-                      <h1 className="text-center text-xs sm:text-sm text-zinc-400">Enter your email above</h1>
+                      <h1 className="text-center text-xs sm:text-sm text-white">Enter your email above</h1>
                     </div>
                   </motion.div>
 
@@ -301,9 +306,9 @@ export default function Home() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1}}
                   >
-                    <span className="block bg-zinc-900 rounded-lg px-4 py-3 transition-all duration-300 ease-in-out group-hover:bg-opacity-80">
-                      <span className="bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 bg-clip-text text-transparent text-3xl font-bold transition-all duration-300 ease-in-out group-hover:bg-gradient-to-l">
-                        Join Now
+                    <span className="block bg-[#adadcc] rounded-lg px-2 py-1 transition-all duration-300 ease-in-out group-hover:bg-opacity-80">
+                      <span className="text-2xl font-bold transition-all duration-300 ease-in-out p-3">
+                        Join now
                       </span>
                     </span>
                   </motion.button>
@@ -320,17 +325,17 @@ export default function Home() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1}}
               >
-                <p className="rounded-xl text-lg sm:text-3xl bg-zinc-500 mx-auto shadow-2xl px-4 py-2 sm:px-6 sm:py-3 text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600">Re-enter my phone number</p>
+                <p className="rounded-xl mb-5 text-lg sm:text-3xl mx-auto shadow-2xl px-4 py-2 sm:px-6 sm:py-3 text-white bg-[#adadcc]">Re-enter my phone number</p>
               </motion.button>
             </div>
             
             <AlertDialog open={isDialogOpen} onOpenChange={(open) => setIsDialogOpen(open)}>
-              <AlertDialogContent className="bg-gradient-to-r from-zinc-800 to-zinc-900 border border-zinc-700 rounded-xl shadow-2xl p-6">
+              <AlertDialogContent className="bg-[#0c0c12] rounded-xl shadow-2xl p-6">
                 <AlertDialogHeader className="mb-6">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-400 to-zinc-300 mb-2">
+                  <h2 className="text-2xl sm:text-3xl font-light text-white mb-2">
                     Just one more thing.
                   </h2>
-                  <p className="text-sm sm:text-lg text-zinc-400">
+                  <p className="text-sm sm:text-lg text-white">
                     Leave us your phone number to be notified instantly.
                   </p>
                 </AlertDialogHeader>
@@ -343,17 +348,16 @@ export default function Home() {
                     className="custom-phone-input py-3 mb-6 text-black bg-zinc-900 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-zinc-500 text-base sm:text-lg transition"
                     inputClassName="bg-zinc-700 text-zinc-600"
                   />
-
                   <AlertDialogFooter className="flex justify-end space-x-3 mt-4">
                     <AlertDialogCancel 
                       onClick={() => setIsDialogOpen(false)} 
-                      className="px-4 py-2 text-sm sm:text-base font-medium rounded-lg bg-zinc-700 text-zinc-300 hover:bg-zinc-600 transition-colors duration-200"
+                      className="px-4 py-2 text-white text-sm sm:text-base font-medium rounded-lg bg-black transition-colors duration-200 justify-between"
                     >
                       Cancel
                     </AlertDialogCancel>
                     <AlertDialogAction 
                       type="submit"
-                      className="px-4 py-2 text-sm sm:text-base font-medium rounded-lg bg-gradient-to-r from-zinc-400 via-zinc-500 to-zinc-600 text-zinc-900 hover:from-zinc-300 hover:to-zinc-500 transition-all duration-200 shadow-md hover:shadow-lg"
+                      className="px-4 py-2 text-white text-sm sm:text-base font-medium rounded-lg bg-black transition-colors duration-200 justify-between"
                     >
                       Submit
                     </AlertDialogAction>
@@ -361,12 +365,24 @@ export default function Home() {
                 </form>
               </AlertDialogContent>
             </AlertDialog>
+            <div className='mb-5'>
             <Mobilcek/>
+            
+            </div>
+            <Mobilcek2/>
+            
           </main>
+          <div className='mx-3 rounded-3xl'>
             <Footer/>
+          </div>
         </motion.div>
       </ToastProvider>
     </MaxWidthWrapper>
     </div>
+    <div>
+
+          {/* DALSI KOD    */}
+    </div>
+  </div>
   );
 }

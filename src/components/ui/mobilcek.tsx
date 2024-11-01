@@ -1,52 +1,58 @@
-import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 export default function Mobilcek() {
+  const videoRef1 = useRef<HTMLVideoElement>(null);
+  const videoRef2 = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const playVideos = async () => {
+      try {
+        if (videoRef1.current) await videoRef1.current.play();
+        if (videoRef2.current) await videoRef2.current.play();
+      } catch (error) {
+        console.log("Error playing videos automatically:", error);
+      }
+    };
+    playVideos();
+  }, []);
+
   return (
-    <section className="bg-transparent py-12 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="bg-zinc-800 py-16 bg-background rounded-3xl drop-shadow-2xl w-full">
+      <div className="container mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
           {/* Text Section */}
-          <div className="space-y-4">
-            <p className="text-muted-foreground max-w-[600px] text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600">
+          <div className="shake-on-hover space-y-4 max-w-[700px] mx-auto md:mx-0">
+            <p className="glow max-w-[700px] text-2xl sm:text-3xl text-black font-extralight mt-10 rounded-3xl p-2 shadow-2xl bg-[#D3D3D3]">
               Use Triptify anywhere, anytime. Want to visit a <span className="font-bold">new place</span>? Want to find the <span className="font-bold">best route</span>? Want to track <span className="font-bold">your trips</span>? Triptify can help you with that.
             </p>
           </div>
 
-          {/* Video Section */}
-          <div className="relative flex items-center justify-center" style={{ width: '100%', height: '600px' }}> {/* Adjust height as needed */}
-            <video
-              src="/kraken.mp4"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover', // This will make sure the video fills the area
-                borderRadius: '0.5rem' // Rounded corners
-              }}
-              autoPlay
-              muted
-              playsInline
-              loop
-            />
-          </div>
+          {/* First Image Section */}
+          <div className="relative flex items-center justify-center rounded-3xl mb-5" style={{ width: '90%', height: '350px', marginLeft: '6%' }}>
+          <img
+            src="/heger.png"
+            className="w-full h-full object-cover rounded-lg sm:max-w-[80%] md:max-w-full"
+            style={{ maxWidth: '100%', height: 'auto' }}
+          />
+        </div>
 
-          {/* Second Video Section */}
+
+          {/* Second Image Section */}
           <div className="relative w-full h-full flex items-center justify-center">
-            <video
-              src="/kurva.mp4"
-              width={1500}
-              height={1000}
-              className="object-contain w-full h-auto rounded-lg"
-              style={{ maxWidth: '100%', height: 'auto', }}
-              autoPlay
-              muted
-              playsInline
+            <img
+              src="/hrabos.png"
+              className="object-contain w-full h-auto rounded-lg sm:max-w-[80%] md:max-w-full"
+              style={{ maxWidth: '100%', height: 'auto' }}
             />
           </div>
 
           {/* Second Text Section */}
-          <p className="text-muted-foreground max-w-[600px] text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600">
-            Plan your routes to the slightest <span className="font-bold">details</span>. Get information about everything you need during the <span className="font-bold">trip</span>. From the <span className="font-bold">tickets</span>, to gas station <span className="font-bold">locations</span>, live family <span className="font-bold">tracking</span>, and lots more.
-          </p>
+          <div className="shake-on-hover space-y-4 max-w-[700px] mx-auto md:mx-0">
+            <p className="glow max-w-[700px] text-2xl sm:text-3xl text-black font-extralight mt-10 rounded-3xl p-2 shadow-2xl bg-[#D3D3D3]">
+            Plan your routes to the slightest details. Get information about <span className="font-bold">everything</span> you need during the trip. From the <span className="font-bold">tickets</span>, to <span className="font-bold">gas</span> station locations, live <span className="font-bold">family</span> tracking, and lots more.
+            </p>
+          </div>
         </div>
       </div>
     </section>

@@ -1,11 +1,10 @@
 import Link from 'next/link'
-import { Calendar, Clock, ChevronRight } from 'lucide-react'
+import { Calendar, Clock, ChevronRight, ArrowLeft } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import Footer from '@/components/ui/footer'
 import MaxWidthWrapper from '@/components/ui/MaxWidthWrapper'
-import BackgroundGrid from '@/components/ui/grid/BackgroundGrid'
 
 const blogPosts = [
   {
@@ -16,8 +15,6 @@ const blogPosts = [
     readTime: "5 min read",
     slug: "/blog/gems-slovakia",
     image: <img className='rounded-xl float-right w-[200px] h-auto mr-4' src="slovak_nature.jpg" alt="slovensko" />
-
-
   },
   {
     id: 2,
@@ -54,7 +51,6 @@ const blogPosts = [
     readTime: "5 min read",
     slug: "/blog/budget-travel-tips",
     image: <img className='rounded-xl float-right w-[200px] h-auto mr-4' src="budget2.jpg" alt="budget" />
-
   },
   {
     id: 6,
@@ -64,7 +60,6 @@ const blogPosts = [
     readTime: "4 min read",
     slug: "/blog/cultural-etiquette",
     image: <img className='rounded-xl float-right w-[200px] h-auto mr-4' src="culture.jpg" alt="culture" />
-
   },
   {
     id: 7,
@@ -74,20 +69,21 @@ const blogPosts = [
     readTime: "6 min read",
     slug: "/blog/packing-essentials",
     image: <img className='rounded-xl float-right w-[200px] h-auto mr-4' src="packing.jpg" alt="packing" />
-
   },
 ]
 
 export default function BlogPage() {
   return (
     <MaxWidthWrapper>
-      <BackgroundGrid/>
+      <div className='bg-[#02021a] rounded-3xl mt-7 mb-7'>
+        
       <div className="min-h-screen bg-transparent text-gray-300 py-12">
+
         <div className="container mx-auto px-4">
-          <h1 className="text-6xl text-center font-light text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 mb-8 leading-[1.4]">
+          <h1 className="text-6xl text-center font-thin text-white mb-8 leading-[1.4]">
             Triptify Blog
           </h1>
-          <p className="text-2xl text-center text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 mb-12 leading-[1.2]">
+          <p className="text-2xl text-center font-thin text-white mb-12 leading-[1.2]">
             Discover travel tips, route planning advice, and inspiring stories for your next adventure.
           </p>
 
@@ -96,15 +92,15 @@ export default function BlogPage() {
               <Card key={post.id} className="bg-zinc-800 border-gray-700 flex flex-col justify-between">
                 <div>
                   <CardHeader className="pb-4">
-                    <CardTitle className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 leading-[1.2]">
+                    <CardTitle className="text-2xl font-thin text-white leading-[1.2]">
                       {post.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pb-2">
-                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 mb-4 leading-[1.2]">
+                    <p className="text-white font-thin mb-4 leading-[1.2]">
                       {post.excerpt}
                     </p>
-                    <div className="flex items-center text-sm text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600 leading-[1.2]">
+                    <div className="flex items-center text-sm font-thin text-white leading-[1.2]">
                       <Calendar className="h-4 w-4 mr-2" />
                       <span className="mr-4">{post.date}</span>
                       <Clock className="h-4 w-4 mr-2" />
@@ -114,7 +110,7 @@ export default function BlogPage() {
                 </div>
                 <CardFooter className="pt-4 mt-auto">
                   <Link href={post.slug}>
-                    <Button variant="ghost" className="text-blue-400 hover:bg-zinc-900 hover:text-blue-500 flex items-center pr-3 gap-1">
+                    <Button variant="ghost" className="font-thin text-blue-400 hover:bg-zinc-900 hover:text-blue-500 flex items-center pr-3 gap-1">
                       Read More <ChevronRight className="ml-1 h-4 w-4 mr-3" />
                     </Button>
                   </Link>
@@ -124,7 +120,13 @@ export default function BlogPage() {
             ))}
           </div>
         </div>
+        <div className='mt-5 text-center transition text-white text-2xl hover:text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-600'>
+                  <Link href='/'>Back to Home</Link>
+                </div>
+        <div className='mx-5 mt-8 mb-6'>
         <Footer />
+        </div>
+      </div>
       </div>
 </MaxWidthWrapper>
     

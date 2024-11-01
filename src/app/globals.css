@@ -114,9 +114,12 @@
 }
 
 /* Specific to mobile devices */
-@media (max-width: 768px) {
-  .video-background {
-    filter: blur(8px); /* Apply blur effect only on mobile */
+@media (max-width: 640px) {
+  .container {
+    padding: 10px; /* Reduce padding on mobile */
+  }
+  .title {
+    font-size: 1.5rem; /* Smaller title on mobile */
   }
 }
 
@@ -185,7 +188,7 @@
 
   /* Apply Background and Foreground Colors */
   body {
-    @apply bg-zinc-900 text-foreground; /* Background and text color */
+    @apply bg-white text-foreground; /* Background and text color */
   }
 }
 
@@ -218,3 +221,51 @@
   filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6)) 
           drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
 }
+
+@keyframes shake {
+  0%, 100% { transform: translate(0, 0); }
+  20%, 60% { transform: translate(-2px, -2px); }
+  40%, 80% { transform: translate(2px, 2px); }
+}
+
+.shake-on-hover:hover {
+  animation: shake 1s ease-in-out;
+}
+
+.dot {
+  width: 10px; /* Size of the dots */
+  height: 10px; /* Size of the dots */
+  background-color: #b4122d; /* Dot color */
+  border-radius: 50%; /* Make the dots circular */
+  margin: 0 5px; /* Space between dots */
+}
+
+.animate-jump {
+  animation: jump 0.6s infinite ease-in-out; /* Jumping animation */
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px); /* Height of the jump */
+  }
+}
+
+/* Delays for the second and third dots */
+.animation-delay-200 {
+  animation-delay: 0.2s; /* Delay for the second dot */
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s; /* Delay for the third dot */
+}
+.chat-background {
+  background-image: url("/AI_bg.png"); /* Adjust the path if needed */
+  background-size: 200% auto; /* Stretch image to fill container */
+  background-repeat: no-repeat; /* Prevent image tiling */
+  background-position: center; /* Center the image */
+  /* Adjust other background properties as needed */
+}
+
