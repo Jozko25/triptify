@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 
 // Initialize OpenAI client
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY, // This should reference the variable correctly
 });
 
 // Store conversation history
