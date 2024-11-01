@@ -108,10 +108,10 @@ export default function Support() {
                   </Accordion>
 
                   <Accordion type="single" collapsible>
-                  <AccordionItem value="item-9">
-                    <AccordionTrigger>Can I use the service without an internet connection?</AccordionTrigger>
+                  <AccordionItem value="item-7">
+                    <AccordionTrigger>Can I use this on my phone?</AccordionTrigger>
                     <AccordionContent className="text-2xl">
-                      Yes, you can download important details and access them offline, so you don't have to worry about losing connection.
+                      Definitely! You can use our service on both your computer and smartphone, so you can plan and explore wherever you are.
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
@@ -120,7 +120,7 @@ export default function Support() {
                 <AccordionItem value="item-10">
                   <AccordionTrigger>How can I give feedback or report a problem?</AccordionTrigger>
                   <AccordionContent className="text-2xl">
-                    You can easily send us your feedback or report any issues through our support page. We're here to help!
+                    You can easily send us your feedback or report any issues through our support page. We are here to help!
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
