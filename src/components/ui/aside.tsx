@@ -5,7 +5,6 @@ import Link from 'next/link';
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import { Button } from './button';
-import BackgroundGrid from './grid/BackgroundGrid';
 
 const Aside = () => {
   const pathname = usePathname();
@@ -20,7 +19,6 @@ const Aside = () => {
 
   return (
     <aside className="hidden md:flex w-64 flex-col border-r rounded-r-xl bg-zinc-300 text-black">
-      <BackgroundGrid />
       <div className="flex items-center h-16 px-4 border-b border-gray-700">
         <Link className="flex items-center space-x-2 font-semibold" href="/">
           <MapPin className="justify-center h-10 w-10 text-zinc-800" />
