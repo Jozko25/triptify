@@ -21,7 +21,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <UserProvider>
         <head>
           <link rel="icon" href="/loc.png" sizes="any" />
         </head>
@@ -29,7 +28,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <Toaster />
         </body>
-      </UserProvider>
     </html>
   );
 }
