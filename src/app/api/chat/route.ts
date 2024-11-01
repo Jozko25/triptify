@@ -1,9 +1,7 @@
-"use server"
+"use server";
 
-import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
-import { promises as fs } from 'fs';
-import path from 'path'; // For safe file path handling
+import { NextResponse } from 'next/server';
 
 // Initialize OpenAI client
 const openai = new OpenAI({
@@ -26,16 +24,16 @@ let tripDetails: {
 // Function to simulate fetching flights (replace this with actual API calls if needed)
 async function fetchFlights(destination: string, date: string, budget: number) {
   return [
-    { airline: 'Airline A', price: 1800, link: 'http://example.com/flightA' },
-    { airline: 'Airline B', price: 1900, link: 'http://example.com/flightB' },
+    { airline: 'Airline A', price: 1800 },
+    { airline: 'Airline B', price: 1900 },
   ];
 }
 
 // Function to simulate fetching accommodations (replace with actual API calls)
 async function fetchAccommodations(destination: string, preferences: string) {
   return [
-    { name: 'Cozy Airbnb', price: 150, link: 'http://example.com/airbnb1' },
-    { name: 'Luxury Airbnb', price: 300, link: 'http://example.com/airbnb2' },
+    { name: 'Cozy Airbnb', price: 150 },
+    { name: 'Luxury Airbnb', price: 300 },
   ];
 }
 
@@ -48,7 +46,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid input. Expected a non-empty string.' }, { status: 400 });
   }
 
-  // Append user input to the conversation history, ensure input is a non-null string
+  // Append user input to the conversation history
   conversationHistory.push({ role: 'user', content: input ?? '' });
 
   try {
@@ -58,7 +56,7 @@ export async function POST(request: Request) {
       content: `
         You are representing the app Triptify. It lets you plan routes to the slightest details. You provide information about anything in the world, but when you are not sure, you say it.
         Triptify is partially free, partially paid, if a client asks, send him to triptify.lol/pricing.
-      `
+      `,
     };
 
     // Prepare the conversation for the API request
@@ -70,7 +68,7 @@ export async function POST(request: Request) {
       messages: messages as { role: 'system' | 'user' | 'assistant'; content: string }[],
     });
 
-    // Get the assistant's response, ensuring it's a non-null string
+    // Get the assistant's response
     const assistantResponse = response.choices[0].message.content ?? '';
 
     // Process user input to extract trip details
@@ -106,21 +104,16 @@ export async function POST(request: Request) {
         Accommodation Preferences: ${tripDetails.accommodation}
 
         Flight Options:
-        ${flights.map(flight => `${flight.airline} - $${flight.price} - [Book Here](${flight.link})`).join('\n')}
+        ${flights.map(flight => `${flight.airline} - $${flight.price}`).join('\n')}
 
         Accommodation Options:
-        ${accommodations.map(accom => `${accom.name} - $${accom.price} - [View Here](${accom.link})`).join('\n')}
+        ${accommodations.map(accom => `${accom.name} - $${accom.price}`).join('\n')}
       `;
-
-      // Write trip details to a file
-      const filePath = path.join(process.cwd(), 'tripDetails.txt');
-      await fs.writeFile(filePath, tripSummary);
 
       // Return response with formatted trip details
       return NextResponse.json({
         response: assistantResponse,
         tripSummary: tripSummary, // For debugging purposes if needed
-        fileUrl: `/tripDetails.txt`, // Make sure this file is accessible
       });
     }
 
@@ -137,3 +130,4 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }
+
